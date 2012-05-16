@@ -1,0 +1,233 @@
+
+/*
+ * Warnings for lack of feature support
+ */
+
+
+ .no-js .no-js-warning {
+    display:block !important;
+}
+
+.no-no-flexbox .no-no-flexbox-warning {
+    display:block !important;
+}
+
+.no-flexbox-legacy .no-flexbox-legacy-warning {
+    display:block !important;
+}
+
+.no-draganddrop .no-draganddrop-warning {
+    display:block !important;
+}
+
+.no-rgba .no-rgba-warning {
+    display:block !important;
+}
+
+.no-hsla .no-hsla-warning {
+    display:block !important;
+}
+
+.no-multiplebgs .no-multiplebgs-warning {
+    display:block !important;
+}
+
+.no-backgroundsize .no-backgroundsize-warning {
+    display:block !important;
+}
+
+.no-borderimage .no-borderimage-warning {
+    display:block !important;
+}
+
+.no-borderradius .no-borderradius-warning {
+    display:block !important;
+}
+
+.no-boxshadow .no-boxshadow-warning {
+    display:block !important;
+}
+
+.no-textshadow .no-textshadow-warning {
+    display:block !important;
+}
+
+.no-opacity .no-opacity-warning {
+    display:block !important;
+}
+
+.no-cssanimations .no-cssanimations-warning {
+    display:block !important;
+}
+
+.no-csstransitions .no-csstransitions-warning {
+    display:block !important;
+}
+
+.no-csscolumns .no-csscolumns-warning {
+    display:block !important;
+}
+
+.no-cssgradients .no-cssgradients-warning {
+    display:block !important;
+}
+
+.no-cssreflections .no-cssreflections-warning {
+    display:block !important;
+}
+
+.no-csstransforms .no-csstransforms-warning {
+    display:block !important;
+}
+
+.no-3d .no-3d-warning {
+    display:block !important;
+}
+
+.no-fontface .no-fontface-warning {
+    display:block !important;
+}
+
+.no-generatedcontent .no-generatedcontent-warning {
+    display:block !important;
+}
+
+.no-video .no-video-warning {
+    display:block !important;
+}
+
+.no-audio .no-audio-warning {
+    display:block !important;
+}
+
+.no-localstorage .no-localstorage-warning {
+    display:block !important;
+}
+
+.no-sessionstorage .no-sessionstorage-warning {
+    display:block !important;
+}
+
+
+/*
+ * These are the detections 
+ * available with the custom 
+ * compilation of modernizr.js 
+ * I've provided with this version
+ * of jSyncWithMedia. See modernizr.com
+ * for modernizr documentation, tutorials,
+ * etc.
+ * 
+ * tip *
+ * I use the ones below as templates.
+ * Copy above and then place your own
+ * subclass between the .no- and the 
+ * first curly brace {. 
+
+ .no-js {
+    
+}
+
+.no-no-flexbox {
+    
+}
+
+.no-flexbox-legacy {
+    
+}
+
+.no-draganddrop {
+    
+}
+
+.no-rgba {
+    
+}
+
+.no-hsla {
+    
+}
+
+.no-multiplebgs {
+    
+}
+
+.no-backgroundsize {
+    
+}
+
+.no-borderimage {
+    
+}
+
+.no-borderradius {
+    
+}
+
+.no-boxshadow {
+    
+}
+
+.no-textshadow {
+    
+}
+
+.no-opacity {
+    
+}
+
+.no-cssanimations {
+    
+}
+
+.no-csstransitions {
+    
+}
+
+.no-csscolumns {
+    
+}
+
+.no-cssgradients {
+    
+}
+
+.no-cssreflections {
+    
+}
+
+.no-csstransforms {
+	    
+}
+
+.no-3d {
+	
+}
+
+.no-fontface {
+    
+}
+
+.no-generatedcontent {
+    
+}
+
+.no-video {
+    
+}
+
+.no-audio {
+    
+}
+
+.no-localstorage {
+    
+}
+
+.no-sessionstorage {
+    
+}
+
+*
+* 
+* * * * * * * * * * * * * * * * * */

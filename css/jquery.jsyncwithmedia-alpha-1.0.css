@@ -1,0 +1,497 @@
+/* jquery.jswm.css - Alpha 1 - 2012/05/
+ *
+ * Copyright (c) 2012 Richard "Foosh" Fouchaux
+ * Dual licensed under the MIT and GPL licenses.
+ * http://rcfouchaux.ca/jquery.syncwithmedia/
+ */
+.jswm * {
+	font-family: sans-serif !important;
+}
+
+/*
+ * ARIA - based
+ */
+
+/*
+ * These maintain the space
+ */
+.jswm [aria-hidden="true"] {
+	visibility: hidden;
+}
+
+.jswm [aria-hidden="false"] {
+	visibility: visible;
+}
+
+/*
+ * These collapse/expand the space
+ * n.b. if you remove classes based on data-jswm-on/off
+ * it will change the behaviour at beginning and end of
+ * modules.
+ */
+.jswm [aria-expanded="true"], .jswm [data-jswm-on="-1"], .jswm [data-jswm-on="0"] {
+	display: block;
+	opacity: 1;
+	height: auto;
+}
+.no-opacity .jswm [aria-expanded="true"] {
+	display: block;
+	height: auto;
+}
+
+.jswm [aria-expanded="false"], .jswm .jswm-syncItem {
+	opacity: 0;
+}
+.jswm.subtitlesmode [aria-expanded="false"], .jswm .subtitlesmode [aria-expanded="false"], 
+.no-opacity .jswm [aria-expanded="false"], 
+.no-opacity .jswm .jswm-syncItem {
+	display: none;
+	height: 0;
+}
+
+.jswm [aria-expanded="true"], .jswm [aria-expanded="false"] {
+	-webkit-transition: opacity 500ms ease-in-out 500ms;
+	-moz-transition: opacity 500ms ease-in-out 500ms;
+	-o-transition: opacity 500ms ease-in-out 500ms;
+	-ms-transition: opacity 500ms ease-in-out 500ms;
+	transition: opacity 500ms ease-in-out 500ms;
+}
+
+.jswm [aria-expanded="true"] {
+	opacity: 1;
+}
+.jswm [aria-expanded="false"] {
+	opacity: 0;
+}
+
+
+/*
+ * "Default Theme" lol
+ */
+
+.jswm {
+	font-family: sans-serif;
+}
+
+/* Experimental... positioning on a north south east west metaphor
+ * +Couple weeks later, still liking this, not so experimental now */
+.jswm .n, .jswm .ne, .jswm .e, .jswm .se, .jswm .s, .jswm .sw, .jswm .w, .jswm .nw, .jswm .c, .jswm .portrait1 {
+	position: absolute !important;
+}
+.jswm img.n, .jswm img.ne, .jswm img.e, .jswm img.se, .jswm img.s, .jswm img.sw, .jswm img.w, .jswm img.nw, .jswm img.c {
+	width: 30%;
+	height: 27%;
+}
+.jswm img.portrait1 {
+	width: 48%;
+	height: 90%;
+}
+.jswm .portrait1 {
+	top: 5%;
+	left: 50%;
+	clear: both;
+}
+
+.jswm img.landscape1 {
+	width: 78%;
+	height: 27%;
+}
+.jswm .panel1 {
+	top: 5%;
+	left: 48%;
+	clear: both;
+}
+
+.jswm .n {
+	top: 5%;
+	left: 36%;
+	clear: both;
+}
+
+.jswm .ne {
+	top: 5%;
+	left: 67%;
+	clear: both;
+}
+.jswm .e {
+	top: 36%;
+	left: 67%;
+	clear: both;
+}
+
+.jswm .se {
+	top: 67%;
+	left: 67%;
+	clear: both;
+}
+.jswm .s {
+	top: 67%;
+	left: 36%;
+	clear: both;
+}
+
+.jswm .sw {
+	top: 67%;
+	left: 4%;
+	clear: both;
+}
+
+.jswm .w, .jswm.bulletsmode ol.subtitles, .jswm.bulletsmode ul.subtitles, .jswm .landscape1 {
+	top: 36%;
+	left: 4%;
+	clear: both;
+}
+
+.jswm .nw {
+	top: 5%;
+	left: 4%;
+	clear: both;
+}
+
+.jswm .c {
+	top: 36%;
+	left: 36%;
+	clear: both;
+}
+
+.jswm .topTitle {
+/*	top: -21px;
+	left: 81px;
+	font-size: 1.67em;
+	font-family: sans-serif;
+	background-color: #dedeef;
+	padding: 6px 12px;
+	border: 1px solid #333;
+	border-radius: 3px;*/
+}
+
+.jswm .accessHints {
+	font-size: 67%;
+}
+
+.jswm.subtitlesmode ol.subtitles, .jswm.subtitlesmode ul.subtitles {
+	list-style-type: none;
+}
+
+.jswm.subtitlesmode ol.subtitles li, .jswm.subtitlesmode ul.subtitles li {
+	list-style-type: none;
+}
+
+.jswm.subtitlesmode li {
+	-webkit-transition: height 500ms ease-in-out 500ms;
+	-moz-transition: height 500ms ease-in-out 500ms;
+	-o-transition: height 500ms ease-in-out 500ms;
+	-ms-transition: height 500ms ease-in-out 500ms;
+	transition: height 500ms ease-in-out 500ms;
+}
+
+.jswm.subtitlesmode li[aria-expanded="true"] {
+	height: auto;
+}
+
+.jswm.subtitlesmode li[aria-expanded="false"] {
+	height: 0;
+}
+.jswm a img.jswm-syncItem {
+	opacity: 0.7;
+}
+.jswm a img.jswm-syncItem:hover {
+	opacity: 1.0;
+}
+
+/* mnemonic associations I use
+ * Lower numbers relatively subtle.
+ * By the time you get to 36 you begin
+ * to make circles */
+
+.rad3 {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-o-border-radius: 3px;
+	-ms-border-radius: 3px;
+}
+
+.rad6 {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-o-border-radius: 6px;
+	-ms-border-radius: 6px;
+}
+
+.rad9 {
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	-o-border-radius: 9px;
+	-ms-border-radius: 9px;
+}
+
+.rad18 {
+	-moz-border-radius: 18px;
+	-webkit-border-radius: 18px;
+	-o-border-radius: 18px;
+	-ms-border-radius: 18px;
+}
+
+.rad36 {
+	-moz-border-radius: 36px;
+	-webkit-border-radius: 36px;
+	-o-border-radius: 36px;
+	-ms-border-radius: 36px;
+}
+
+.rad45 {
+	-moz-border-radius: 45px;
+	-webkit-border-radius: 45px;
+	-o-border-radius: 45px;
+	-ms-border-radius: 45px;
+}
+
+.rad90 {
+	-moz-border-radius: 90px;
+	-webkit-border-radius: 90px;
+	-o-border-radius: 90px;
+	-ms-border-radius: 90px;
+}
+/* font stuff */
+.bold {
+	font-weight: bold;
+}
+.italics {
+	font-style: italic;
+}
+.left {
+	text-align: left !important;
+}
+.centered {
+	text-align: center !important;
+}
+.em2 {
+	font-size: 2.0em;
+}
+.largest {
+	font-size: 1.67em;
+}
+.larger {
+	font-size: 110%;
+}
+
+.small {
+	font-size: small;
+}
+.blue {
+	color: #3333aa;
+}
+.lighterblue {
+	color: #bbbbff;
+}
+.darkerblue {
+	color: #111155;
+}
+.smaller {
+	font-size: 92%
+}
+.smallest {
+	font-size: 79%
+}
+.code {
+	font-family: "Lucida Console, monospace";
+	line-height: 0.95 !important;
+}
+.dark-shadow {
+	text-shadow: 2px 2px 3px rgba(33, 33, 72, 0.6);
+	/*box-shadow: 2px 2px 3px rgba(33, 33, 72, 0.6);*/
+}
+.big-dark-shadow {
+	text-shadow: 4px 4px 4px rgba(55, 55, 55, 0.88);
+	/*box-shadow: 4px 4px 4px rgba(55, 55, 55, 0.88);*/
+}
+.light-shadow {
+	text-shadow: 2px 2px 3px rgba(201, 201, 201, 0.67);
+	/*box-shadow: 2px 2px 3px rgba(201, 201, 201, 0.67);*/
+}
+.big-light-shadow {
+	text-shadow: 4px 4px 4px rgba(201, 201, 201, 0.67);
+	/*box-shadow: 4px 4px 4px rgba(201, 201, 201, 0.67);*/
+}
+/* box shadows for objects */
+
+.dark-boxshadow {
+	box-shadow: 2px 2px 3px rgba(33, 33, 72, 0.6);
+}
+.big-dark-boxshadow {
+	box-shadow: 4px 4px 4px rgba(55, 55, 55, 0.88);
+}
+.light-boxshadow {
+	box-shadow: 2px 2px 3px rgba(201, 201, 201, 0.67);
+}
+.big-light-boxshadow {
+	box-shadow: 4px 4px 4px rgba(201, 201, 201, 0.67);
+}
+
+/* cool (I hope) gradients */
+
+.jswm-bg_gradient_green {
+	background: #015600;
+	background: -moz-linear-gradient(top,  #015600 0%, #83c783 15%, #007a04 34%, #52b152 78%, #b4ddb4 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#015600), color-stop(15%,#83c783), color-stop(34%,#007a04), color-stop(78%,#52b152), color-stop(100%,#b4ddb4));
+	background: -webkit-linear-gradient(top,  #015600 0%,#83c783 15%,#007a04 34%,#52b152 78%,#b4ddb4 100%);
+	background: -o-linear-gradient(top,  #015600 0%,#83c783 15%,#007a04 34%,#52b152 78%,#b4ddb4 100%);
+	background: -ms-linear-gradient(top,  #015600 0%,#83c783 15%,#007a04 34%,#52b152 78%,#b4ddb4 100%);
+	background: linear-gradient(top,  #015600 0%,#83c783 15%,#007a04 34%,#52b152 78%,#b4ddb4 100%);
+	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#015600', endColorstr='#b4ddb4',GradientType=0 );
+}
+
+.jswm-bg_gradient_copper {
+	background: #f0b7a1;
+	background: -moz-linear-gradient(top,  #f0b7a1 0%, #8c3310 10%, #752201 20%, #bf6e4e 60%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0b7a1), color-stop(10%,#8c3310), color-stop(20%,#752201), color-stop(60%,#bf6e4e));
+	background: -webkit-linear-gradient(top,  #f0b7a1 0%,#8c3310 10%,#752201 20%,#bf6e4e 60%);
+	background: -o-linear-gradient(top,  #f0b7a1 0%,#8c3310 10%,#752201 20%,#bf6e4e 60%);
+	background: -ms-linear-gradient(top,  #f0b7a1 0%,#8c3310 10%,#752201 20%,#bf6e4e 60%);
+	background: linear-gradient(top,  #f0b7a1 0%,#8c3310 10%,#752201 20%,#bf6e4e 60%);
+	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#bf6e4e',GradientType=0 );
+
+}
+
+.jswm-bg_gradient_gold {
+	background: #f3e2c7;
+	background: -moz-linear-gradient(top,  #f3e2c7 0%, #c19e67 10%, #b68d4c 20%, #e9d4b3 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3e2c7), color-stop(10%,#c19e67), color-stop(20%,#b68d4c), color-stop(100%,#e9d4b3));
+	background: -webkit-linear-gradient(top,  #f3e2c7 0%,#c19e67 10%,#b68d4c 20%,#e9d4b3 100%);
+	background: -o-linear-gradient(top,  #f3e2c7 0%,#c19e67 10%,#b68d4c 20%,#e9d4b3 100%);
+	background: -ms-linear-gradient(top,  #f3e2c7 0%,#c19e67 10%,#b68d4c 20%,#e9d4b3 100%);
+	background: linear-gradient(top,  #f3e2c7 0%,#c19e67 10%,#b68d4c 20%,#e9d4b3 100%);
+	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3',GradientType=0 );
+
+}
+
+.jswm-bg_gradient_yellow {
+	background: #fceabb;
+	background: -moz-linear-gradient(top,  #fceabb 0%, #f8b500 10%, #fccd4d 20%, #f9d67c 60%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fceabb), color-stop(10%,#f8b500), color-stop(20%,#fccd4d), color-stop(60%,#f9d67c));
+	background: -webkit-linear-gradient(top,  #fceabb 0%,#f8b500 10%,#fccd4d 20%,#f9d67c 60%);
+	background: -o-linear-gradient(top,  #fceabb 0%,#f8b500 10%,#fccd4d 20%,#f9d67c 60%);
+	background: -ms-linear-gradient(top,  #fceabb 0%,#f8b500 10%,#fccd4d 20%,#f9d67c 60%);
+	background: linear-gradient(top,  #fceabb 0%,#f8b500 10%,#fccd4d 20%,#f9d67c 60%);
+	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#f9d67c',GradientType=0 );
+
+}
+
+.jswm-bg_gradient_RedGloss, /* preferred */
+.jswm-bg_gradient_red-gloss  /* deprecated, will disappear w/o-n in future commit */ {
+	background: #f3c5bd;
+	background: -moz-linear-gradient(top,  #f3c5bd 0%, #e86c57 10%, #ea2803 20%, #ff6600 60%, #c72200 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3c5bd), color-stop(10%,#e86c57), color-stop(20%,#ea2803), color-stop(60%,#ff6600), color-stop(100%,#c72200));
+	background: -webkit-linear-gradient(top,  #f3c5bd 0%,#e86c57 10%,#ea2803 20%,#ff6600 60%,#c72200 100%);
+	background: -o-linear-gradient(top,  #f3c5bd 0%,#e86c57 10%,#ea2803 20%,#ff6600 60%,#c72200 100%);
+	background: -ms-linear-gradient(top,  #f3c5bd 0%,#e86c57 10%,#ea2803 20%,#ff6600 60%,#c72200 100%);
+	background: linear-gradient(top,  #f3c5bd 0%,#e86c57 10%,#ea2803 20%,#ff6600 60%,#c72200 100%);
+	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#f3c5bd', endColorstr='#c72200',GradientType=0 );
+}
+
+.jswm-bg_gradient_obsidian {
+	background: #959595;
+	background: -moz-linear-gradient(top,  #959595 0%, #0d0d0d 10%, #0a0a0a 20%, #4e4e4e 60%, #1b1b1b 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#959595), color-stop(10%,#0d0d0d), color-stop(20%,#0a0a0a), color-stop(60%,#4e4e4e), color-stop(100%,#1b1b1b));
+	background: -webkit-linear-gradient(top,  #959595 0%,#0d0d0d 10%,#0a0a0a 20%,#4e4e4e 60%,#1b1b1b 100%);
+	background: -o-linear-gradient(top,  #959595 0%,#0d0d0d 10%,#0a0a0a 20%,#4e4e4e 60%,#1b1b1b 100%);
+	background: -ms-linear-gradient(top,  #959595 0%,#0d0d0d 10%,#0a0a0a 20%,#4e4e4e 60%,#1b1b1b 100%);
+	background: linear-gradient(top,  #959595 0%,#0d0d0d 10%,#0a0a0a 20%,#4e4e4e 60%,#1b1b1b 100%);
+	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#1b1b1b',GradientType=0 );
+}
+
+.jswm-bg_gradient_slate {
+	background: #7d7e7d;
+	background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e));
+	background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%);
+	background: -o-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%);
+	background: -ms-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%);
+	background: linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%);
+	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+
+}
+
+.jswm-bg_gradient_pearl {
+	background: #fcfff4;
+	background: -moz-linear-gradient(top,  #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead));
+	background: -webkit-linear-gradient(top,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+	background: -o-linear-gradient(top,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+	background: -ms-linear-gradient(top,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+	background: linear-gradient(top,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+.jswm-bg_gradient_BlueFoil {
+	background: rgb(97,153,199); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(97,153,199,1) 0%, rgba(65,154,214,1) 11%, rgba(58,132,195,1) 22%, rgba(65,154,214,1) 34%, rgba(58,139,194,1) 43%, rgba(38,85,139,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(97,153,199,1)), color-stop(11%,rgba(65,154,214,1)), color-stop(22%,rgba(58,132,195,1)), color-stop(34%,rgba(65,154,214,1)), color-stop(43%,rgba(58,139,194,1)), color-stop(100%,rgba(38,85,139,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(97,153,199,1) 0%,rgba(65,154,214,1) 11%,rgba(58,132,195,1) 22%,rgba(65,154,214,1) 34%,rgba(58,139,194,1) 43%,rgba(38,85,139,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(97,153,199,1) 0%,rgba(65,154,214,1) 11%,rgba(58,132,195,1) 22%,rgba(65,154,214,1) 34%,rgba(58,139,194,1) 43%,rgba(38,85,139,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(97,153,199,1) 0%,rgba(65,154,214,1) 11%,rgba(58,132,195,1) 22%,rgba(65,154,214,1) 34%,rgba(58,139,194,1) 43%,rgba(38,85,139,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(97,153,199,1) 0%,rgba(65,154,214,1) 11%,rgba(58,132,195,1) 22%,rgba(65,154,214,1) 34%,rgba(58,139,194,1) 43%,rgba(38,85,139,1) 100%); /* W3C */
+	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#6199c7', endColorstr='#26558b',GradientType=0 ); /* IE6-9 */
+}
+/* make copies:
+ *
+ .jswm-bg_gradient_COLOR {
+
+ }
+ *
+ * * * * * * */
+
+/*
+ * Legacy basics from first demo alpha 0.9
+ */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+.myCopyrightNotice {
+	clear: both;
+	position: absolute;
+	width: 80% !important;
+	margin: 18px 10% 9px 10% !important;
+	left: 0 !important;
+	font-size: 0.67em;
+	font-family: sans-serif;
+	text-align: center;
+}
+.bold {
+	font-weight: bold;
+}
+.small {
+	font-size: small;
+}
+.code {
+	font-family: monospace;
+	line-height: 0.95 !important;
+}
+.blue {
+	color: #3333aa;
+}
+.line-height-normal {
+	line-height: normal;
+}
+/*
+ * Testing area
+ */
+.clear, hr.space {
+	clear: both;
+}
+hr.space {
+	visibility: hidden;
+}
+/* shadows */
+.jswm .shadowMedium {
+	-webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+	-o-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+	-ms-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+	box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+}
+.div-centered {
+	margin: auto 0;
+}

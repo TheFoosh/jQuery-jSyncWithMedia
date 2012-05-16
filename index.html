@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<title>jQuery.jSyncWithMedia - Alpha 1.0</title>
+		<link href="css/jquery.jsyncwithmedia-alpha-1.0.css" rel="stylesheet" type="text/css" />
+		<link href="css/myModernizr.css" rel="stylesheet" type="text/css" />
+		<link rel="icon" type="image/png" href="favicon.png">
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: sans-serif !important;
+			}
+			.myCopyrightNotice {
+				clear: both;
+				position: absolute;
+				width: 80% !important;
+				margin: 18px 10% 9px 10% !important;
+				left: 0 !important;
+				font-size: 0.67em;
+				font-family: sans-serif;
+				text-align: center;
+				display: block !important;
+			}
+		</style>
+		<script type="text/javascript" src="js/modernizr.all-css.audvid.storage.dragdrop.queries.js"></script>
+		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.jsyncwithmedia-alpha-1.0.js"></script>
+		<script type="text/javascript">
+						var DEBUG = false;
+			// [true | false]
+
+			$(document).ready(function() { 
+
+			$('#syncWithMedia').jSWM( { 
+			setupMode: "true", /* displays time to one decimal place to facilitate setting timings */
+			mode: "subtitles", /* the CSS for "bullets" mode is broken */
+			moduleCSS:{"min-height":"390px","width":"720px","color":"white",border:"4px solid rgba(144,144,207,0.6)"},
+			subtitlesCSS : {
+			    "border" : false,
+				"border-radius" : "15px",
+				"color" : "white",
+				"font-size" : "1.15em", 
+				"min-height" : false,
+				"left" : "6px",
+				"margin" : "0",
+				"padding" : "9px 12px",
+				"position" : "absolute",
+				"top" : "120px",
+				"width" : "43%"
+			},
+			audioCSS : {
+				"border" : "1px solid #223",
+				"border-radius" : false
+			},
+			titleCSS : {
+				"z-index" : "99",
+				"border-radius" : "15px"
+			},
+			showCTCSS : {
+                                "color" : "#112",
+                                "background-color" : "#aad"
+                        }, 
+			normalPCSS : { "max-width" : "40%" }  
+			});
+			
+			$('#chngThm').on('click', function(event){
+				var theme1 = ["jswm jswm-bg_gradient_BlueFoil subtitlesmode","jswm-bg_gradient_BlueFoil","jswm-bg_gradient_BlueFoil rad18"],
+				    theme2 = ["jswm jswm-bg_gradient_RedGloss subtitlesmode","jswm-bg_gradient_yellow","jswm-bg_gradient_yellow rad18"],
+				    theme3 = ["jswm jswm-bg_gradient_slate subtitlesmode","jswm-bg_gradient_obsidian","jswm-bg_gradient_obsidian rad18"],
+				    theme4 = ["jswm jswm-bg_gradient_green subtitlesmode","jswm-bg_gradient_green","jswm-bg_gradient_green rad18"],
+				    theme5 = ["jswm jswm-bg_gradient_pearl subtitlesmode","jswm-bg_gradient_pearl","jswm-bg_gradient_pearl rad18"],
+				    m, h, a, $moi = $('#syncWithMedia');
+				    event.preventDefault();
+				    if( $moi.is('.jswm-bg_gradient_BlueFoil') )
+				    {
+				      $moi.attr('class',theme2[0]).css({"color":"#ffd700","text-shadow":"1px 1px 1px #331"});
+				      $moi.find('h3:first').attr('class',theme2[1]).css({"color":"#f9d000","text-shadow":"1px 1px 3px #220"});
+				      $moi.find('audio').attr('class',theme2[2]);
+				    } else 
+				    if( $moi.is('.jswm-bg_gradient_RedGloss') )
+				    {
+				      $moi.attr('class',theme3[0]).css({"color":"white","text-shadow":"-1px -1px 2px #111"});
+				      $moi.find('h3:first').attr('class',theme3[1]).css({"color":"white","text-shadow":"0 0 0 #331"});
+				      $moi.find('audio').attr('class',theme3[2]);
+				    } else 
+				    if( $moi.is('.jswm-bg_gradient_slate') )
+				    {
+				      $moi.attr('class',theme4[0]).css({"color":"#444","text-shadow":"0 0 0 #aa8"});
+				      $moi.find('h3:first').attr('class',theme4[1]).css({"color":"rgba(6,72,6,.8)","text-shadow":"1px -1px 1px #efe"});
+				      $moi.find('audio').attr('class',theme4[2]);
+				    } else 
+				    if( $moi.is('.jswm-bg_gradient_green') )
+				    {
+				      $moi.attr('class',theme5[0]).css({"color":"#111","text-shadow":"0 0 0 #331"});
+				      $moi.find('h3:first').attr('class',theme5[1]).css({"color":"#111","text-shadow":"-1 -1 1 #9a9"});
+				      $moi.find('audio').attr('class',theme5[2]);
+				    } else 
+				    if( $moi.is('.jswm-bg_gradient_pearl') )
+				    {
+				      $moi.attr('class',theme1[0]).css({"color":"white","text-shadow":"0 0 0 #331"});
+				      $moi.find('h3:first').attr('class',theme1[1]).css({"color":"white","text-shadow":"0 0 0 #331"});
+				      $moi.find('audio').attr('class',theme1[2]);
+				    }
+				    
+			});
+
+
+			if(DEBUG) {
+			setTimeout(function() {
+			console.log('Sync-ready audio count =', $('.syncwithmedia audio').length);
+			}, 360);
+			}
+
+			});
+		</script>
+	</head>
+	<body>
+		<div id="content"> <!-- I use "invisible" class visibility:none distinctly from "hidden" display:none. -->
+			<div id="syncWithMedia" class="jswm-bg_gradient_BlueFoil" aria-hidden="true">
+				<h3 class="jswm-bg_gradient_BlueFoil rad45">jQuery.jSyncWithMedia</h3>
+				<audio class="jswm-bg_gradient_BlueFoil rad18">
+					<source src="media/jSyncWithMedia.ogg" type="audio/ogg" ></source>
+					<source src="media/jSyncWithMedia.mp3" type="audio/mp3" ></source>
+					<!-- 		TODO: automate-fallback		 -->
+				</audio>
+<!--
+	 				<video>
+					<source src="media/twenty_seconds.ogg" type="audio/ogg" />
+					<source src="media/twenty_seconds.mp3" type="audio/mp3" />
+					
+				</video>
+ --><!-- 		TODO: automate-fallback	[ wait a minute, why? This is unapologetically html5 here. ]	 -->
+				<p class="first bold">
+					Simple media synchronizing
+				</p>
+				<p class="jswm-syncItem" data-jswm-on="-1" data-jswm-off="3">
+					With <strong>jQuery.jSyncWithMedia</strong> you can record a narration and
+					synchronize a slide show to your speech. <br><br>For automated bullets or subtitles,
+					create an unordered list and set the attribute
+					<span class="bold code lighterblue dark-shadow">data-jswm-on="StartTime"</span>
+					<span class="bold code lighterblue dark-shadow">data-jswm-off="EndTime"</span> in seconds,
+					to one decimal place, e.g., "3.5". <br><br>For any other element add these "data-" 
+					attributes and the class 
+					<span class="bold code lighterblue dark-shadow">class="jswm-syncItem"</span>. Set start to 0
+					or a negative number to make an item appear before you press play, and again at the end..
+					<br clear="all" />
+				</p>
+				<img src="images/jSWM_alpha.png" alt="jSyncWithMedia Alpha 1"
+				class="portrait1 jswm-syncItem rad3" data-jswm-on="0.0" data-jswm-off="9.1"  />
+
+				<img src="images/jSWM_img.01.png" alt="jSyncWithMedia Alpha 1"
+				class="portrait1 jswm-syncItem rad3" data-jswm-on="9.2" data-jswm-off="17.9"  />
+
+				<img src="images/jSWM_img.05.png" alt="jSyncWithMedia Alpha 1"
+				class="portrait1 jswm-syncItem rad3" data-jswm-on="20.8" data-jswm-off="38.5"  />
+
+				<img src="images/jSWM_img.04.png" alt="jSyncWithMedia Alpha 1"
+				class="portrait1 jswm-syncItem rad3" data-jswm-on="38.4" data-jswm-off="44.5"  />
+				
+								
+
+				<img src="images/yui2.png" alt="yui2 screenshot thumb"
+				class="w jswm-syncItem rad3" height="180" data-jswm-on="51.5" data-jswm-off="56"  />
+
+				<img src="images/yui3.png" alt="yui3 screenshot thumb"
+				class="w jswm-syncItem rad3" height="210" data-jswm-on="52" data-jswm-off="56"  />
+
+				<img src="images/jquery.png" alt="jquery.com screenshot thumb"
+				class="w jswm-syncItem rad3" height="240" data-jswm-on="52.5" data-jswm-off="56"  />
+
+				<img src="images/cwp.png" alt="old newspapers, crosswords and cob webs"
+				class="c jswm-syncItem rad3" data-jswm-on="53.5" data-jswm-off="56"  />
+				
+
+				<img src="images/jSWM_img.06.png" alt="jSyncWithMedia Alpha 1"
+				class="portrait1 jswm-syncItem rad3" data-jswm-on="56.5" data-jswm-off="58.5"  />
+
+				<img src="images/jSWM_img.07.png" alt="jSyncWithMedia Alpha 1"
+				class="portrait1 jswm-syncItem rad3" data-jswm-on="59" data-jswm-off="65"  />
+				
+				
+<!-- the arrow & oval -->
+				<img src="images/arrow_ul.png" alt="jSyncWithMedia Alpha 1"
+				class="arrow jswm-syncItem" data-jswm-on="31.2" data-jswm-off="37"
+				style="position: absolute; top: 81px; left: 333px; width: 72px; height: 72px; z-index: 9"  />
+				
+				<img src="images/arrow_ne.png" alt="jSyncWithMedia Alpha 1"
+				class="arrow jswm-syncItem" data-jswm-on="39.2" data-jswm-off="42"
+				style="position: absolute; top: 162px; left: 378px; width: 72px; height: 72px; z-index: 9"  />
+				
+				<img src="images/arrow_e.png" alt="jSyncWithMedia Alpha 1"
+				class="arrow jswm-syncItem" data-jswm-on="42.2" data-jswm-off="44"
+				style="position: absolute; top: 180px; left: 441px; width: 72px; height: 72px; z-index: 9"  />
+
+				<img src="images/jSWM_img.05a_oval.png" alt="jSyncWithMedia Alpha 1"
+				class="portrait1 jswm-syncItem rad3" data-jswm-on="29.5" data-jswm-off="38.5"
+				style="position: absolute; top: 198px; left: 381px; width: 360px; height:96px; z-index: 9"  />
+				
+				<ul>
+					<li data-jswm-on="3.5" data-jswm-off="8" >
+						jQuery/CSS/HTML5, simple media synchronization on a Web page
+					</li>
+					<li data-jswm-on="8.0" data-jswm-off="20.8" >
+						record, then synchronize text and images
+						<br />
+					</li>
+					<li data-jswm-on="15.5" data-jswm-off="20.8" >
+						...in a presentation-like format
+						<br />
+					</li>
+					<li data-jswm-on="17.5" data-jswm-off="20.8" >
+						...or as subtitles / closed captioning
+						<br />
+					</li>
+					<li data-jswm-on="21" data-jswm-off="44.5" class="larger" >
+						To get started...
+						<br />
+					</li>
+					<li data-jswm-on="22.0" data-jswm-off="44.5" class="code"  >
+						&lt;div&gt;<br> &nbsp;audio&gt;<br> &nbsp; &nbsp;&lt;source&gt;One .ogg, one mp3&lt;/source&gt;<br> &lt;/audio&gt;<br> &lt;ul&gt;<br> &nbsp; &nbsp;&lt;li&gt;Point&lt;/li&gt;<br> &nbsp;&lt;/ul&gt;<br>&lt;/div&gt;
+						<br />
+					</li>
+					<li data-jswm-on="23.0" data-jswm-off="44.5" class="code"  >
+						&lt;img <strong class="larger">class="jswm-syncItem"</strong> src="myImage.png" /&gt;
+						<br />
+					</li>
+					<li data-jswm-on="29.5" data-jswm-off="34.4" class="larger bold code lighterblue dark-shadow"  >
+						data-<em>namespace-anything</em>="myData"
+						<br />
+					</li>
+					<li data-jswm-on="35" data-jswm-off="44.5" class="code"  >
+						<strong class="larger">
+						&nbsp; class="jswm-syncItem"
+						<br />
+						data-<em>namespace-anything</em>="myData"
+						<br />
+						data-<em>namespace-anything</em>="myData"
+						<br /></strong>
+					</li>
+					<li data-jswm-on="46" data-jswm-off="52" class="largest bold code lighterblue dark-shadow"  >
+						I wrote this
+						<br />but...
+					</li>
+					<li data-jswm-on="47.5" data-jswm-off="52" class="em2 bold code lighterblue dark-shadow"  >
+						I'm not a programmer!
+						<br />
+					</li>
+					<li data-jswm-on="49.5" data-jswm-off="52" class="larger bold code lighterblue dark-shadow"  >
+						<br />(I've been a music teacher and a "webmaster" for a faculty of education)
+						<br />
+					</li>
+				</ul>
+				<div class="sw jswm-syncItem largest darkerblue light-shadow"
+				     data-jswm-on="52" data-jswm-off="59">If I can do this...</div>
+				<div class="sw jswm-syncItem em2 darkerblue light-shadow"
+				     data-jswm-on="55" data-jswm-off="59"><br>I bet you can too!</div>
+				<!-- My plan... -->
+				<img class="c jswm-syncItem" alt="Screen shot of this app" style="margin-left: -36px;"
+				     src="images/jSyncWithMedia_screenshot_alpha1.png" width="390"
+				     data-jswm-on="65" data-jswm-off="79" />
+				<div class="w jswm-syncItem larger dark-shadow"
+				     data-jswm-on="66" data-jswm-off="79">What I knew already </div>
+				<div class="sw jswm-syncItem larger dark-shadow"
+				     data-jswm-on="68" data-jswm-off="79">The tools I used</div>
+				<div class="s jswm-syncItem larger dark-shadow"
+				     data-jswm-on="70" data-jswm-off="79"><br>Where I looked for help</div>
+				<div class="se jswm-syncItem larger dark-shadow"
+				     data-jswm-on="72" data-jswm-off="79">What I wish I could do better...</div>
+				<div class="e jswm-syncItem larger dark-shadow"
+				     data-jswm-on="74" data-jswm-off="79">And how all this might be connected <br>
+				     <img src="images/connections.png"
+					  width="210" alt="icons connected by arrows, clipped from a larger idea map" />
+				</div>
+				<div class="n jswm-syncItem largest dark-shadow" style="padding-left:90px;"
+				     data-jswm-on="65.5" data-jswm-off="88.8">Documenting the experience of building this tool
+				     to document the experience of building this tool...</div>
+				<div class="sw jswm-syncItem dark-shadow" style="padding-left:90px;"
+				     data-jswm-on="80" data-jswm-off="88.8">Idea Mapping</div>
+				
+				<div class="s jswm-syncItem dark-shadow" style="padding-left:90px;"
+				     data-jswm-on="82" data-jswm-off="88.8">Communities of Practice</div>
+				<div class="se jswm-syncItem dark-shadow" style="padding-left:90px;"
+				     data-jswm-on="84" data-jswm-off="88.8">Personal Learning Networks</div>
+				
+				<div class="w jswm-syncItem"
+				     data-jswm-on="85" data-jswm-off="88.8">
+				<img src="images/new_ways.png"
+				     style="width:600px; height:300px; opacity: .25;"
+					  alt="icons connected by arrows, clipped from a larger idea map" /></div>
+				<br class="clear">
+			</div>
+
+		</div>
+		
+		<div class="centered margBot3"><button id="chngThm">Change Theme</button></div>
+		
+		<div class="centered"><a href="/">Project Home</a> | <a href="/blog/">Blog</a></div>
+		<div class="myCopyrightNotice" class="no-js"> 
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"> <img alt="Creative Commons Licence" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"> </a>
+			<br>
+			<span class="bold">jQuery.jSyncWithMedia</span> by <a href="rcfouchaux.ca" rel="cc:attributionURL">Richard C. Fouchaux</a> is licensed under a
+			<br>
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+			<br>
+			Permissions beyond the scope of this license may be available at <a href="rcfouchaux.ca/contact/" rel="cc:morePermissions">rcfouchaux.ca/contact/</a>
+			<br>
+			All code Copyright (c) 2012 Richard "Foosh" Fouchaux and dual licensed under the MIT and GPL licenses.
+		</div>
+
+	</body>
+</html>

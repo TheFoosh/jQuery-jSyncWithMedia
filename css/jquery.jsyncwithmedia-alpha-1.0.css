@@ -192,11 +192,11 @@
 .jswm.subtitlesmode li[aria-expanded="false"] {
 	height: 0;
 }
-.jswm a img.jswm-syncItem:hover {
-	opacity: 1.0;
-}
 .jswm a img.jswm-syncItem {
 	opacity: 0.7;
+}
+.jswm a img.jswm-syncItem:hover {
+	opacity: 1.0;
 }
 
 /* Optional/experimental below here */

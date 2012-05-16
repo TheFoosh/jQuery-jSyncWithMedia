@@ -20,7 +20,7 @@
 				jswmTitleId = "jswmTitle",
 				jswmSubtitlesId = "jswmSubtitles",
 				jswmFirstPId = "jswmFirstP",
-				jswmAudioClassName = "",
+				jswmAudioClassName = "jswm-audio",
 				syncItemClassName = "jswm-syncItem",
 				objDisplayId = "jswmObjDisplay", /* TODO: This becomes a fully stylable display area. */  /*[ true | false ] Displays currentTime */
 				defaults = {
@@ -73,9 +73,7 @@
 				subtitlesLiAttr : {
 					"aria-expanded": "false" /* Initializes false, do not change: functionality depends on this setting */
 				},
-				subtitlesLiCSS : { 
-					"color":"rgb(33,33,33)" 
-				},
+				subtitlesLiCSS : { "color":"rgb(33,33,33)" },
 				firstPAttr : {
 					"id" : jswmFirstPId
 				},
@@ -102,7 +100,6 @@
 					"max-width" : "42%",
 					"height" : "39px"
 				}/*
-				  * Disabled, troubleshooting
 				  *,
 				videoAttr : {
 					"controls" : "controls",
@@ -273,7 +270,7 @@
 			 * Later: I've tried many other ways too. aria-hidden="true" applies visibility:none
 			 * but I still see a flash of unformatted objects just as the app initializes. 
 			 */
-			this.addClass('jswm '+modeClassName[settings.mode]).attr(settings.moduleAttr).css(settings.moduleCSS);
+			this.hide().addClass('jswm '+modeClassName[settings.mode]).attr(settings.moduleAttr).css(settings.moduleCSS);
 			this.find(settings.titleElement).attr(settings.titleAttr).css(settings.titleCSS);
 			/* TODO: switch/case to make settings.mode account for other than ul   */
 			this.find(settings.subtitleElement).addClass('jswm-syncItems')
@@ -365,7 +362,6 @@
 		} else {
 			$.error('Method ' + method + ' does not exist on jQuery.jSyncWithMedia');
 		}
-/* TODO: I should put the sync() method here somewhere, and/or try it as _sync private method. */
 
 	};
 

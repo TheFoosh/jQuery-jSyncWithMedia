@@ -1,4 +1,4 @@
-﻿README
+﻿README.md
 
 I taught myself HTML, CSS and jQuery the same way I taught myself guitar: by copying my favorite licks off the best players I can find. I'm not always sure I know how to do jQuery, but I do know how to learn. 
 

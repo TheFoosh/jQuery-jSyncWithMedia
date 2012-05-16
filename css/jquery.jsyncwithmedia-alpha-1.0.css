@@ -192,13 +192,14 @@
 .jswm.subtitlesmode li[aria-expanded="false"] {
 	height: 0;
 }
-.jswm a img.jswm-syncItem {
-	opacity: 0.7;
-}
 .jswm a img.jswm-syncItem:hover {
 	opacity: 1.0;
 }
+.jswm a img.jswm-syncItem {
+	opacity: 0.7;
+}
 
+/* Optional/experimental below here */
 /* mnemonic associations I use
  * Lower numbers relatively subtle.
  * By the time you get to 36 you begin
@@ -252,6 +253,38 @@
 	-o-border-radius: 90px;
 	-ms-border-radius: 90px;
 }
+.margTop3 {
+	margin-top: 3px;
+}
+.margTop6 {
+	margin-top: 6px;
+}
+.margTop9 {
+	margin-top: 9px;
+}
+.margTop18 {
+	margin-top: 18px;
+}
+.margTop36 {
+	margin-top: 36px;
+}
+
+.margBot3 {
+	margin-bottom: 3px;
+}
+.margBot6 {
+	margin-bottom: 6px;
+}
+.margBot9 {
+	margin-bottom: 9px;
+}
+.margBot18 {
+	margin-bottom: 18px;
+}
+.margBot36 {
+	margin-bottom: 36px;
+}
+
 /* font stuff */
 .bold {
 	font-weight: bold;
@@ -265,14 +298,17 @@
 .centered {
 	text-align: center !important;
 }
-.em2 {
-	font-size: 2.0em;
+.large {
+	font-size: 102%;
+}
+.larger {
+	font-size: 110%;
 }
 .largest {
 	font-size: 1.67em;
 }
-.larger {
-	font-size: 110%;
+.em2 {
+	font-size: 2.0em;
 }
 
 .small {
@@ -286,6 +322,9 @@
 }
 .darkerblue {
 	color: #111155;
+}
+.small {
+	font-size: 98%
 }
 .smaller {
 	font-size: 92%
@@ -328,7 +367,10 @@
 	box-shadow: 4px 4px 4px rgba(201, 201, 201, 0.67);
 }
 
-/* cool (I hope) gradients */
+/*  
+ * Ultimate CSS Gradient Generator from ColorZilla.
+ * http://www.colorzilla.com/gradient-editor/ 
+ * * * * * * * * * * * * * * * * * * * * **/
 
 .jswm-bg_gradient_green {
 	background: #015600;
@@ -477,6 +519,10 @@ body {
 }
 /*
  * Testing area
+ * 
+ * TODO: There's no need for so many arrow images 
+ *       if you don't care about < HTML5
+ *       Just rotate w css
  */
 .clear, hr.space {
 	clear: both;

@@ -1,0 +1,41 @@
+
+			$myOptions = { /*  */
+    			moduleCSS : {
+    			  "css_property" : "value"
+    			},
+    			titleCSS : {
+    			},
+    			subtitleCSS : {
+    			},
+    			audioAttr : {
+    			},
+    			audioCSS : {
+			}
+			}
+		
+		
+			$myOptions = { /*  */
+			moduleCSS : {
+			"min-width" : "900px",
+			"max-width" : "900px",
+			"min-height" : "510px",
+			"box-shadow" : "#232334 2px -2px 3px"
+			},
+			titleCSS : {
+			"color" : "#333",
+			"box-shadow" : "#232334 2px -2px 3px"
+			},
+			subtitleCSS : {
+			"position" : "absolute",
+			"top" : "96px",
+			"left" : "18px",
+			"max-width" : "40%",
+			"color" : "rgba(39,39,48,0.95)"
+			},
+			audioAttr : {
+			"top" : "72px"
+			},
+			audioCSS : {
+			"background" : "transparent url(images/bg-gradblues.png) repeat-x"
+			}
+			}

@@ -1,0 +1,28 @@
+<div id="mySyncMedia">
+<h3>TITLE <!-- Positioned in init or css --></h3>
+  <audio>
+  	<source src="media/twenty_seconds.ogg" type="audio/ogg" />
+  	<source src="media/twenty_seconds.mp3" type="audio/mp3" />
+  </audio>
+  <p>The first paragraph is automatically formatted larger</p>
+  <p>You can configure other paragraphs at run time or with CSS.</p>
+  <ul>
+    <li data-jswm-on="0" data-jswm-off="1.4">Bullet point one appears before you press Play and disappears after 1.5 seconds.</li>
+    <li data-jswm-on="1.5" data-jswm-off="6.0">Bullet point two appears at 1.5s and disappears at 6.0s</li>
+    <li data-jswm-on="3.5" data-jswm-off="6.0">Bullet point three appears at 3.5s and disappears at 6.0s</li>
+    <li data-jswm-on="-1" data-jswm-off="-1">Set to <code>data-jswm-on="-1" data-jswm-off="-1"</code> appears at the end.</li>
+  </ul>
+  <!--
+       The first UL in your document is automatically subtitles. 
+       You can set up other elements by explicitly assigning class="jswm-syncItem"
+       There are 9 absolute positions configured in jSWM.css file: n s e w ne se sw nw and c
+       There is also a .landscape1 and .portrait1 that sizes and positions images.
+       You can reduce image distortion by using certain width:height ratios 
+  -->
+  <img scr="images/compass_128x128.png" class="jswm-syncItem sw" data-jswm-on="1" data-jswm-off="7.5" >
+  <img scr="images/compass_128x128.png" class="jswm-syncItem s" data-jswm-on="5" data-jswm-off="11.5" >
+  <img scr="images/compass_128x128.png" class="jswm-syncItem se" data-jswm-on="9" data-jswm-off="15.5" >
+  
+  <!-- Setting both data-jswm-on="-1" data-jswm-off="-1" can display credits or a final splash screen -->
+  <img scr="images/jSWM_alpha_panelsz.png" class="jswm-syncItem se" data-jswm-on="-1" data-jswm-off="-1" >
+</div>

@@ -21,7 +21,7 @@
 				$myOptions = {
 					moduleAttr : {
 						"align" : "center",
-						"class" : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletssmode) REQUIRED */
+						"class" : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletsmode) REQUIRED */
 					},
 					moduleCSS : {
 						"border" : "3px solid #fcfff4", /* by default this color matches audio gradient's "no gradients" fallback bg-color */
@@ -85,14 +85,16 @@
 				<p class="jswm-syncItem bold largest" data-jswm-on="0" data-jswm-off="10">
 					A compass metaphor
 				</p>
-				<p class="jswm-syncItem code" data-jswm-on="0" data-jswm-off="10">
-					class="n | ne | e | se | s | sw | w | nw " 
+				<p class="jswm-syncItem" data-jswm-on="0" data-jswm-off="10">
+					<span class="code line-height-normal">class="n | ne | e | se | s | sw | w | nw "</span> <br>
+					built-in css area system, it uses % so it can scale. 
 					<br clear="all" />
 				</p>
-				<p aria-expanded="false" class="jswm-syncItem code line-height-normal" 
+				<p aria-expanded="false" class="jswm-syncItem line-height-normal" 
 				   data-jswm-on="-1" data-jswm-off="-1" >
 				   <span class="bold largest">A compass metaphor</span><br><br>
-					class="n | ne | e | se | s | sw | w | nw " 
+					<span class="code line-height-normal">class="n | ne | e | se | s | sw | w | nw "</span> <br>
+					built-in css area system, it uses % so as to scale. (Need to test more browsers.)
 					<br clear="all" /></p>
 				<audio>
 					<source src="../media/compasslayout.ogg" type="audio/ogg" />
@@ -134,57 +136,60 @@
 			     
 			<img src="../images/arrow_ne.png" class="jswm-syncItem" 
 			     data-jswm-on="12.7" data-jswm-off="15" style="position: absolute; top:297px; left: 282px; width:72px;"/>
+			
+		<div class="syncItem sw"><textarea id="optionsThisModule" class="syncItem code" aria-expanded="false" data-jswm-on="-1" data-jswm-off="-1">
+$myOptions = {
+	moduleAttr : {
+		"align" : "center",
+		"class" : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletsmode) REQUIRED */
+	},
+	moduleCSS : {
+		"border" : "3px solid #fcfff4", /* by default this color matches audio gradient's "no gradients" fallback bg-color */
+		"min-width" : "800px",
+		"max-width" : "800px",
+		"min-height" : "600px",
+		"box-shadow" : "#a7aaa1 3px -3px 6px"
+	},
+	titleAttr : {
+		"class" : "jswm-bg_gradient_pearl red-glossFont"
+	},
+	titleCSS : {
+		"color" : "#333",
+		"box-shadow" : "#232334 2px -2px 3px",
+		"z-index":"9"
+	},
+	subtitlesCSS : {
+		"position" : "absolute",
+		"color" : "#123",
+		"top" : "282px",
+		"left" : "282px",
+		"max-width" : "27%",
+		"min-height" : "222px",
+		"max-height" : "522px"
+	},
+	audioAttr : {
+		"autoplay" : false,
+		"controls" : "controls",
+		"class" : "jswm-audio-element jswm-bg_gradient_red-gloss rad9 c" /* jswm-audio-element REQUIRED
+		 * TODO: create settings.xxxClassNames
+		 * so we can add classes w/o wroorying
+		 * * * * * * * * * * * * * * * */
+	},
+	audioCSS : {
+		"width" : "240px",
+		"border" : "2px solid #daddd1"
+	}
+}	
+
+//
+$('#syncWithMedia').jSWM($myOptions);		
+	
+		</textarea></div>
+
 			</div>
 
 		</div>
-		<div class="code"><code>
-				$myOptions = {
-					moduleAttr : {
-						"align" : "center",
-						"class" : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletssmode) REQUIRED */
-					},
-					moduleCSS : {
-						"border" : "3px solid #fcfff4", /* by default this color matches audio gradient's "no gradients" fallback bg-color */
-						"min-width" : "800px",
-						"max-width" : "800px",
-						"min-height" : "600px",
-						"box-shadow" : "#a7aaa1 3px -3px 6px"
-					},
-					titleAttr : {
-						"class" : "jswm-bg_gradient_pearl red-glossFont"
-					},
-					titleCSS : {
-						"color" : "#333",
-						"box-shadow" : "#232334 2px -2px 3px",
-						"z-index":"9"
-					},
-					subtitlesCSS : {
-						"position" : "absolute",
-						"color" : "#123",
-						"top" : "282px",
-						"left" : "282px",
-						"max-width" : "27%",
-						"min-height" : "222px",
-						"max-height" : "522px"
-					},
-					audioAttr : {
-						"autoplay" : false,
-						"controls" : "controls",
-						"class" : "jswm-audio-element jswm-bg_gradient_red-gloss rad9 c" /* jswm-audio-element REQUIRED
-						 * TODO: create settings.xxxClassNames
-						 * so we can add classes w/o wroorying
-						 * * * * * * * * * * * * * * * */
-					},
-					audioCSS : {
-						"width" : "240px",
-						"border" : "2px solid #daddd1"
-					}
-				}	
-				
-				//
-				$('#syncWithMedia').jSWM($myOptions);		
-		</code></div>
-		<div class="myCopyrightNotice sw syncItem" data-swm-onoff="1.1:0">
+		<div class="myCopyrightNotice sw syncItem" data-jswm-on="0" data-jswm-off="-1">
 			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"> <img alt="Creative Commons Licence" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"> </a>
 			<br>
 			<span class="bold">jQuery.jSyncWithMedia</span> by <a href="rcfouchaux.ca" rel="cc:attributionURL">Richard C. Fouchaux</a> is licensed under a

@@ -22,14 +22,13 @@
 .jswm [aria-hidden="false"] {
 	visibility: visible;
 }
-
 /*
  * These collapse/expand the space
  * n.b. if you remove classes based on data-jswm-on/off
  * it will change the behaviour at beginning and end of
  * modules.
  */
-.jswm [aria-expanded="true"], .jswm [data-jswm-on="-1"], .jswm [data-jswm-on="0"] {
+.jswm [aria-expanded="true"], .jswm [data-jswm-on="0"] {
 	display: block;
 	opacity: 1;
 	height: auto;
@@ -512,7 +511,7 @@ code {
 	white-space:pre;
 }
 .code {
-	font-family: monospace;
+	font-family: monospace !important;
 	line-height: 0.95 !important;
 }
 .blue {
@@ -528,6 +527,16 @@ code {
  *       if you don't care about < HTML5
  *       Just rotate w css
  */
+
+#optionsThisModule {
+	width: 780px;
+	min-width: 780px;
+	max-width: 780px;
+	height: 300px;
+	margin: 3px auto;
+	margin-top: -108px;
+}
+
 .clear, hr.space {
 	clear: both;
 }

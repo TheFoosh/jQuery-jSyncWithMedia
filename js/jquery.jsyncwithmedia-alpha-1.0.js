@@ -6,7 +6,7 @@
  */
 (function($) {
 
-	var DEBUG = true, /* true | false set true for console feedback */
+	var DEBUG = false, /* true | false set true for console feedback */
 		methods = {
 		init : function(options) {
 			/*
@@ -253,7 +253,8 @@
 			 $media.wrap('<span style="position:relative;" class="shadowMedium rad18" />').parent()
 			 .append('<div id="showCT">0.0</div>').find('#showCT').css(settings.showCTCSS);	
 			}
-			$('.jswm audio:first').focus();
+			/* Aa quarter second is more than enough to make sure it fully inits */
+			setTimeout("$('.jswm audio:first').focus();",250);
 			 
 		}, settings = $.extend(true, defaults, options), /* 'true' is required with data map notation to make $extend merge rather than replace. These variable names clarify we're combining defaults + options to get our settings. */
 			mediaType = 'none', /* local variable to store type. 

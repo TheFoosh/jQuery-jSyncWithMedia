@@ -507,6 +507,10 @@ body {
 .small {
 	font-size: small;
 }
+code {
+	font-family: monospace;
+	white-space:pre;
+}
 .code {
 	font-family: monospace;
 	line-height: 0.95 !important;

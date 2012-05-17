@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<head>
+		<title>jQuery.jSyncWithMedia</title>
+		<link href="../css/jquery.jsyncwithmedia-alpha-1.0.css" rel="stylesheet" type="text/css" />
+		<!-- /* See modernizr.com. I've picked a small set.
+		* TODO: read modernizr licensing w view to inserting*
+		* * * * * * * * * * * * * * * * * * * * * * * / -->
+		<script type="text/javascript" src="../js/modernizr.all-css.audvid.storage.dragdrop.queries.js"></script>
+		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.jsyncwithmedia-alpha-1.0.js"></script>
+		<script type="text/javascript">
+			var DEBUG = false;
+			// [true | false]
+
+			$(document).ready(function() {
+				$myOptions = {
+					moduleAttr : {
+						"align" : "center",
+						"class" : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletssmode) REQUIRED */
+					},
+					moduleCSS : {
+						"border" : "3px solid #fcfff4", /* by default this color matches audio gradient's "no gradients" fallback bg-color */
+						"min-width" : "800px",
+						"max-width" : "800px",
+						"min-height" : "600px",
+						"box-shadow" : "#a7aaa1 3px -3px 6px"
+					},
+					titleAttr : {
+						"class" : "jswm-bg_gradient_pearl red-glossFont"
+					},
+					titleCSS : {
+						"color" : "#333",
+						"box-shadow" : "#232334 2px -2px 3px",
+						"z-index":"9"
+					},
+					subtitlesCSS : {
+						"position" : "absolute",
+						"color" : "#123",
+						"top" : "282px",
+						"left" : "282px",
+						"max-width" : "27%",
+						"min-height" : "222px",
+						"max-height" : "522px"
+					},
+					audioAttr : {
+						"autoplay" : false,
+						"controls" : "controls",
+						"class" : "jswm-audio-element jswm-bg_gradient_red-gloss rad9 c" /* jswm-audio-element REQUIRED
+						 * TODO: create settings.xxxClassNames
+						 * so we can add classes w/o wroorying
+						 * * * * * * * * * * * * * * * */
+					},
+					audioCSS : {
+						"width" : "240px",
+						"border" : "2px solid #daddd1"
+					}
+				};
+
+				$('#syncWithMedia').jSWM($myOptions);
+
+				$('body').prepend('<img id="forkImg" src="../images/forkme_left_lightblue.png" alt="Ribbon labelled Fork Me, link to GitHub" />');
+				$('#forkImg').css({ position : "absolute", top : "0", left : "0", cursor : "pointer" })
+				             .click(function(event) {
+				         	window.open('https://github.com/TheFoosh/jQuery-jSyncWithMedia','gitHubWin');
+				         });
+
+				if(DEBUG) {
+					setTimeout(function() {
+						console.log('Sync-ready audio count =', $('.syncwithmedia audio').length);
+					}, 360);
+				}
+
+			});
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="syncWithMedia" aria-hidden="true">
+				<h3 class="red-glossFont">jQuery.jSyncWithMedia</h3>
+				<p class="jswm-syncItem bold largest" data-jswm-on="0" data-jswm-off="10">
+					A compass metaphor
+				</p>
+				<p class="jswm-syncItem code" data-jswm-on="0" data-jswm-off="10">
+					class="n | ne | e | se | s | sw | w | nw " 
+					<br clear="all" />
+				</p>
+				<p aria-expanded="false" class="jswm-syncItem code line-height-normal" 
+				   data-jswm-on="-1" data-jswm-off="-1" >
+				   <span class="bold largest">A compass metaphor</span><br><br>
+					class="n | ne | e | se | s | sw | w | nw " 
+					<br clear="all" /></p>
+				<audio>
+					<source src="../media/compasslayout.ogg" type="audio/ogg" />
+					<source src="../media/compasslayout.mp3" type="audio/mp3" />
+					<!-- 		TODO: automate-fallback		 -->
+				</audio>
+				<ul>
+					<li data-jswm-on="1.0" data-jswm-off="12.6" class="bold blue">
+						In this example I'm using classes named after the points of the compass. 
+						<br />
+					</li>
+					<li data-jswm-on="12.7" data-jswm-off="15" class="bold blue margTop36">
+						Audio is <code>class="c"</code> for "center"
+						<br />
+					</li>
+				</ul>
+			<img src="../images/compass_540x540.png" class="jswm-syncItem n" 
+			     data-jswm-on="4.0" data-jswm-off="15" alt="A compass" style="margin-top: 21px;" >
+			<img src="../images/compass_540x540.png" class="jswm-syncItem ne" 
+			     data-jswm-on="4.8" data-jswm-off="15" alt="A compass" >
+			<img src="../images/compass_540x540.png" class="jswm-syncItem e" 
+			     data-jswm-on="6" data-jswm-off="15" alt="A compass" >
+			<img src="../images/compass_540x540.png" class="jswm-syncItem se" 
+			     data-jswm-on="6.8" data-jswm-off="15" alt="A compass" >
+			<img src="../images/compass_540x540.png" class="jswm-syncItem s" 
+			     data-jswm-on="7.6" data-jswm-off="15" alt="A compass" >
+			<img src="../images/compass_540x540.png" class="jswm-syncItem sw" 
+			     data-jswm-on="8.5" data-jswm-off="15" alt="A compass" >
+			<img src="../images/compass_540x540.png" class="jswm-syncItem w" 
+			     data-jswm-on="9.5" data-jswm-off="15" alt="A compass" >
+			<img src="../images/compass_540x540.png" class="jswm-syncItem nw" 
+			     data-jswm-on="10.2" data-jswm-off="15" alt="A compass" >
+			     
+			<img src="../images/compass_540x540.png" class="jswm-syncItem nw" 
+			     data-jswm-on="16.2" data-jswm-off="17" alt="A compass" style="width: 50%; height: 50%;" aria-expanded="false" >
+			<img src="../images/compass_540x540.png" class="jswm-syncItem nw" 
+			     data-jswm-on="17.1" data-jswm-off="20" alt="A compass" >
+			     
+			     
+			<img src="../images/arrow_ne.png" class="jswm-syncItem" 
+			     data-jswm-on="12.7" data-jswm-off="15" style="position: absolute; top:297px; left: 282px; width:72px;"/>
+			</div>
+
+		</div>
+		<div class="code"><code>
+				$myOptions = {
+					moduleAttr : {
+						"align" : "center",
+						"class" : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletssmode) REQUIRED */
+					},
+					moduleCSS : {
+						"border" : "3px solid #fcfff4", /* by default this color matches audio gradient's "no gradients" fallback bg-color */
+						"min-width" : "800px",
+						"max-width" : "800px",
+						"min-height" : "600px",
+						"box-shadow" : "#a7aaa1 3px -3px 6px"
+					},
+					titleAttr : {
+						"class" : "jswm-bg_gradient_pearl red-glossFont"
+					},
+					titleCSS : {
+						"color" : "#333",
+						"box-shadow" : "#232334 2px -2px 3px",
+						"z-index":"9"
+					},
+					subtitlesCSS : {
+						"position" : "absolute",
+						"color" : "#123",
+						"top" : "282px",
+						"left" : "282px",
+						"max-width" : "27%",
+						"min-height" : "222px",
+						"max-height" : "522px"
+					},
+					audioAttr : {
+						"autoplay" : false,
+						"controls" : "controls",
+						"class" : "jswm-audio-element jswm-bg_gradient_red-gloss rad9 c" /* jswm-audio-element REQUIRED
+						 * TODO: create settings.xxxClassNames
+						 * so we can add classes w/o wroorying
+						 * * * * * * * * * * * * * * * */
+					},
+					audioCSS : {
+						"width" : "240px",
+						"border" : "2px solid #daddd1"
+					}
+				}	
+				
+				//
+				$('#syncWithMedia').jSWM($myOptions);		
+		</code></div>
+		<div class="myCopyrightNotice sw syncItem" data-swm-onoff="1.1:0">
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"> <img alt="Creative Commons Licence" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"> </a>
+			<br>
+			<span class="bold">jQuery.jSyncWithMedia</span> by <a href="rcfouchaux.ca" rel="cc:attributionURL">Richard C. Fouchaux</a> is licensed under a
+			<br>
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+			<br>
+			Permissions beyond the scope of this license may be available at <a href="rcfouchaux.ca/contact/" rel="cc:morePermissions">rcfouchaux.ca/</a>
+		</div>
+	</body>
+</html>

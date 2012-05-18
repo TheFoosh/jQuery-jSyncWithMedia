@@ -6,6 +6,7 @@
 	<head>
 		<title>jQuery.jSyncWithMedia</title>
 		<link href="../css/jquery.jsyncwithmedia-alpha-1.0.css" rel="stylesheet" type="text/css" />
+		<link href="../css/myModernizr.css" rel="stylesheet" type="text/css" />
 		<!-- /* See modernizr.com. I've picked a small set.
 		* TODO: read modernizr licensing w view to inserting*
 		* * * * * * * * * * * * * * * * * * * * * * * / -->
@@ -90,6 +91,18 @@
 		</script>
 	</head>
 	<body>
+		<div class="jswm-fatal">Your browser does not support <span class="no-js-warning"> JavaScript</span>
+		<span class="no-video-warning"> video</span>	 <span class="no-audio-warning"> audio </span>
+		<span class="no-opacity-warning"> opacity </span>.
+		This is a fatal error.<div class="close-warning">X</div></div>  
+
+		<div class="jswm-warning">Your browser does not support <span class="no-csscolumns-warning"> css columns</span>
+		<span class="no-csstransforms-warning"> css transforms</span> <span class="no-csstransitions-warning"> css transitions</span>.
+		Some features may not work, and the presentation will not look exactly as the author intended.<div class="close-warning">X</div></div>  
+
+		<div class="jswm-info">Your browser does not support <span class="no-fontface-warning"> embedded fonts</span> 
+		<span class="no-textshadow-warning"> text shadow</span> <span class="no-cssgradients-warning"> css gradients</span>.
+		The presentation will not look exactly as the author intended.<div class="close-warning">X</div></div>
 		<div id="content">
 			<div id="syncWithMedia" aria-hidden="true">
 				<h3 class="red-glossFont">jQuery.jSyncWithMedia</h3>

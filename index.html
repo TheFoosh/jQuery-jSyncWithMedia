@@ -38,7 +38,17 @@
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript" src="js/jquery.jsyncwithmedia-alpha-1.0.js"></script>
 		<script type="text/javascript">
-						var DEBUG = false;
+			var DEBUG = false,
+			    getBubbleTxt = function(){
+				  var isWebKit = $.browser.webkit ? true : false,
+				      isMoz = $.browser.mozilla ? true : false,
+				      isMS = $.browser.msie ? true : false,
+				      isO = $.browser.opera ? true : false,
+				      altKey = $('.jswm audio').attr('accesskey'),
+				      probableKeys = isMoz ? 'ALT+Shift+'+altKey : (isMS ? 'ALT+'+altKey : ' unknown or untested'),
+				      msg = isWebKit ? 'Audio accesskey=\"'+altKey+'\"<span class=\"smallest\"><br>Consult your browser and/or <br>assistive technology <br>documentation to use accesskey <br>with a Webkit browser.</span>' : 'With your browser try <br>'+probableKeys+'<br>to focus media.)<br>Press spacebar to play';
+				  return msg;
+			};
 			// [true | false]
 
 			$(document).ready(function() { 
@@ -125,7 +135,9 @@
 			}, 360);
 			}
 			
-			$('#syncWithMedia').prepend('<div style=\"top:0;right:0;\" class=\"bg-speechbubble-sw light-shadow zIndex9\" aria-expanded=\"false\")>Audio accesskey=\"A\"<br>Press spacebar to play</div>');
+			
+			
+			$('#syncWithMedia').prepend('<div style=\"top:0;right:0;\" class=\"bg-speechbubble-sw light-shadow zIndex9\" aria-expanded=\"false\">'+getBubbleTxt()+'<\/div>');
 			setTimeout( "$('.bg-speechbubble-sw').attr('aria-expanded','true')", 4000 );
 			setTimeout( "$('.bg-speechbubble-sw').attr('aria-expanded','false')", 9000 );
 

@@ -303,9 +303,6 @@
 	font-size: 2.0em;
 }
 
-.small {
-	font-size: small;
-}
 .blue {
 	color: #3333aa;
 }
@@ -319,10 +316,10 @@
 	font-size: 98%
 }
 .smaller {
-	font-size: 92%
+	font-size: 90%
 }
 .smallest {
-	font-size: 79%
+	font-size: 75%
 }
 .code {
 	font-family: "Lucida Console, monospace";

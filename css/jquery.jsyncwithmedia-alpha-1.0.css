@@ -77,9 +77,14 @@
 .jswm .n, .jswm .ne, .jswm .e, .jswm .se, .jswm .s, .jswm .sw, .jswm .w, .jswm .nw, .jswm .c, .jswm .portrait1 {
 	position: absolute !important;
 }
-.jswm img.n, .jswm img.ne, .jswm img.e, .jswm img.se, .jswm img.s, .jswm img.sw, .jswm img.w, .jswm img.nw, .jswm img.c {
-	width: 30%;
+.jswm img.n, .jswm img.ne, .jswm img.e, .jswm img.se, .jswm img.s, .jswm img.sw, .jswm img.w, .jswm img.nw, .jswm img.c,
+.jswm div.n, .jswm div.ne, .jswm div.e, .jswm div.se, .jswm div.s, .jswm div.sw, .jswm div.w, .jswm div.nw, 
+.jswm div.c {
+	width: 27%;
 	height: 27%;
+}
+.jswm div.n, .jswm div.ne, .jswm div.e, .jswm div.se, .jswm div.s, .jswm div.sw, .jswm div.w, .jswm div.nw, 
+.jswm div.c {
 }
 .jswm img.portrait1 {
 	width: 48%;
@@ -527,6 +532,40 @@ code {
  *       if you don't care about < HTML5
  *       Just rotate w css
  */
+.zIndex9 {
+	position: absolute;
+	z-index: 9;
+}
+
+
+.bg-speechbubble-ne,
+.bg-speechbubble-nw ,
+.bg-speechbubble-se ,
+.bg-speechbubble-sw {
+	font-size: 1.25em;
+    font-weight: bold;
+    padding:  9% 7% 0 5%;
+    text-align: center;
+} /* 10% 6% 16% 5% */
+
+.bg-speechbubble-ne {
+	background: transparent url('../images/speech_bubble_ne.png') no-repeat top left;
+    padding:  9% 7% 16% 7%;
+}
+
+.bg-speechbubble-nw {
+	background: transparent url('../images/speech_bubble_nw.png') no-repeat top left;
+    padding:  9% 7% 16% 5%;
+}
+
+.bg-speechbubble-se {
+	background: transparent url('../images/speech_bubble_se.png') no-repeat top left;
+    padding:  11% 8% 17% 8%;
+}
+
+.bg-speechbubble-sw {
+	background: transparent url('../images/speech_bubble_sw.png') no-repeat top  ;
+    padding: 10% 6% 16% 5%;
 
 #optionsThisModule {
 	width: 780px;

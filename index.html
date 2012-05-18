@@ -2,7 +2,7 @@
 <html lang="en" class="no-js"><!-- This file presumes a modernizr.js One is included in js/. -->
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<meta http-equiv="X-UA-Compatible" content="IE=10" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 		<title>jQuery.jSyncWithMedia - Alpha 1.0</title>
 		<link href="css/jquery.jsyncwithmedia-alpha-1.0.css" rel="stylesheet" type="text/css" />
@@ -26,6 +26,13 @@
 				display: block !important;
 			}
 		</style>
+		
+		<!--[IF lte IE 9] 
+		<style type="text/css">
+		  audio {  height:auto ; background-color:#00516E ; border-radius: 9px; min-width: 402px; max-width: 402px; }
+		</style>
+		<![endif]-->
+		
 		<script type="text/javascript" src="js/modernizr.all-css.audvid.storage.dragdrop.queries.js"></script>
 		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
@@ -108,6 +115,8 @@
 				    }
 				    
 			});
+			
+			$('.close-warning').on('click',function(event){ event.preventDefault(); $(this).parent().hide(); });
 
 
 			if(DEBUG) {
@@ -115,11 +124,28 @@
 			console.log('Sync-ready audio count =', $('.syncwithmedia audio').length);
 			}, 360);
 			}
+			
+			$('#syncWithMedia').prepend('<div style=\"top:0;right:0;\" class=\"bg-speechbubble-sw light-shadow zIndex9\" aria-expanded=\"false\")>Audio accesskey=\"A\"<br>Press spacebar to play</div>');
+			setTimeout( "$('.bg-speechbubble-sw').attr('aria-expanded','true')", 4000 );
+			setTimeout( "$('.bg-speechbubble-sw').attr('aria-expanded','false')", 9000 );
 
-			});
+			}); /* ^END DOCREADY */
 		</script>
 	</head>
 	<body>
+		<div class="jswm-fatal">Your browser does not support <span class="no-js-warning"> JavaScript</span>
+		<span class="no-video-warning"> video</span>	 <span class="no-audio-warning"> audio </span>
+		<span class="no-opacity-warning"> opacity </span>.
+		This is a fatal error.<div class="close-warning">X</div></div>  
+
+		<div class="jswm-warning">Your browser does not support <span class="no-csscolumns-warning"> css columns</span>
+		<span class="no-csstransforms-warning"> css transforms</span> <span class="no-csstransitions-warning"> css transitions</span>.
+		Some features may not work, and the presentation will not look exactly as the author intended.<div class="close-warning">X</div></div>  
+
+		<div class="jswm-info">Your browser does not support <span class="no-fontface-warning"> embedded fonts</span> 
+		<span class="no-textshadow-warning"> text shadow</span> <span class="no-cssgradients-warning"> css gradients</span>.
+		The presentation will not look exactly as the author intended.<div class="close-warning">X</div></div>
+		
 		<div id="content"> <!-- I use "invisible" class visibility:none distinctly from "hidden" display:none. -->
 			<div id="syncWithMedia" class="jswm-bg_gradient_BlueFoil" aria-hidden="true">
 				<h3 class="jswm-bg_gradient_BlueFoil rad45">jQuery.jSyncWithMedia</h3>
@@ -146,8 +172,10 @@
 					<span class="bold code lighterblue dark-shadow">data-jswm-off="EndTime"</span> in seconds,
 					to one decimal place, e.g., "3.5". <br><br>For any other element add these "data-" 
 					attributes and the class 
-					<span class="bold code lighterblue dark-shadow">class="jswm-syncItem"</span>. Set start to 0
-					or a negative number to make an item appear before you press play, and again at the end..
+					<span class="bold code lighterblue dark-shadow">class="jswm-syncItem"</span>. 
+					<br /><strong>Special settings:</strong> 
+					<span class="code">data-jswm-on="0"</span> shows at load time.
+					<span class="code">data-jswm-on="-1" data-jswm-off="-1"</span> shows after everything has played.
 					<br clear="all" />
 				</p>
 				<img src="images/jSWM_alpha.png" alt="jSyncWithMedia Alpha 1"
@@ -234,7 +262,7 @@
 						<br />
 					</li>
 					<li data-jswm-on="35" data-jswm-off="44.5" class="code"  >
-						<strong class="larger">
+						<strong>
 						&nbsp; class="jswm-syncItem"
 						<br />
 						data-<em>namespace-anything</em>="myData"
@@ -242,16 +270,16 @@
 						data-<em>namespace-anything</em>="myData"
 						<br /></strong>
 					</li>
-					<li data-jswm-on="46" data-jswm-off="52" class="largest bold code lighterblue dark-shadow"  >
-						I wrote this
-						<br />but...
+					<li data-jswm-on="46" data-jswm-off="52" class="largest bold code lighterblue dark-shadow" >
+						This is a research project
+						<br />and...
 					</li>
 					<li data-jswm-on="47.5" data-jswm-off="52" class="em2 bold code lighterblue dark-shadow"  >
-						I'm not a programmer!
+						 I'm creating an artifact...
 						<br />
 					</li>
 					<li data-jswm-on="49.5" data-jswm-off="52" class="larger bold code lighterblue dark-shadow"  >
-						<br />(I've been a music teacher and a "webmaster" for a faculty of education)
+						<br />I've been a middle school music, math, and computers teacher, and a "webmaster" for a faculty of education and I like jQuery...
 						<br />
 					</li>
 				</ul>
@@ -298,7 +326,7 @@
 		</div>
 		
 		<div class="centered margBot3"><button id="chngThm">Change Theme</button></div>
-		
+		<div class="centered margTop3 margBot3 smaller"><span class="smallest">More examples:</span> | <a href="examples/compass_metaphor.html">compass metaphor</a> |</div>
 		<div class="centered margTop3"><a href="http://www.rcfouchaux.ca/">Project Home</a> | <a href="http://www.rcfouchaux.ca/blog/">Blog</a></div>
 		<div class="myCopyrightNotice" class="no-js"> 
 			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"> <img alt="Creative Commons Licence" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"> </a>

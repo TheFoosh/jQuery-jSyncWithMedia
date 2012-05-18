@@ -1,112 +1,79 @@
 
 /*
  * Warnings for lack of feature support
+ * System 1
+ * use with div to form groups
  */
 
+.jswm-fatal, .jswm-warning, .jswm-info { position:relative; display: none; }
+.jswm-fatal { background-color: red; color:black; padding: 3px 6px; font-weight: bold; }
+.jswm-warning {  background-color: rgb(209,209,33); color:black; padding: 3px 6px; font-weight: bold; }
+.jswm-info {  background-color: cornflowerblue; color:black; padding: 3px 6px; font-weight: bold; }
 
- .no-js .no-js-warning {
-    display:block !important;
+/* fatal -- show-stoppers */ 
+.no-js .jswm-fatal, .no-video .jswm-fatal, .no-audio .jswm-fatal
+.no-opacity .jswm-fatal { 
+    display: block; 
+} 
+
+
+/* warning - ugly, annoying, broken features */
+
+.no-csscolumns .jswm-warning,
+.no-csstransforms .jswm-warning, .no-csstransitions .jswm-warning { 
+    display: block; 
 }
 
-.no-no-flexbox .no-no-flexbox-warning {
-    display:block !important;
+/* unfortunate */
+.no-fontface .jswm-info, .no-textshadow .jswm-info,
+.no-cssgradients .jswm-info {
+    display: block;
+}   
+
+
+
+/*
+ * System 2
+ * use with spans inside group containers
+ */
+
+.no-js-warning, .no-no-flexbox-warning, .no-flexbox-legacy-warning, .no-draganddrop-warning, 
+.no-rgba-warning, .no-hsla-warning, .no-multiplebgs-warning, .no-backgroundsize-warning, 
+.no-borderimage-warning, .no-borderradius-warning, .no-boxshadow-warning, .no-textshadow-warning, 
+.no-opacity-warning, .no-cssanimations-warning, .no-csstransitions-warning, .no-csscolumns-warning, 
+.no-cssgradients-warning, .no-cssreflections-warning, .no-csstransforms-warning, .no-3d-warning,
+.no-fontface-warning, .no-generatedcontent-warning, .no-video-warning, .no-audio-warning, .no-localstorage-warning, 
+.no-sessionstorage-warning {
+    display:none !important;
 }
 
-.no-flexbox-legacy .no-flexbox-legacy-warning {
-    display:block !important;
+.no-js .no-js-warning, .no-no-flexbox .no-no-flexbox-warning, .no-flexbox-legacy .no-flexbox-legacy-warning,
+.no-draganddrop .no-draganddrop-warning, .no-rgba .no-rgba-warning, .no-hsla .no-hsla-warning,
+.no-multiplebgs .no-multiplebgs-warning, .no-backgroundsize .no-backgroundsize-warning,
+.no-borderimage .no-borderimage-warning, .no-borderradius .no-borderradius-warning,
+.no-boxshadow .no-boxshadow-warning, .no-textshadow .no-textshadow-warning,
+.no-opacity .no-opacity-warning, .no-cssanimations .no-cssanimations-warning,
+.no-csstransitions .no-csstransitions-warning, .no-csscolumns .no-csscolumns-warning,
+.no-cssgradients .no-cssgradients-warning, .no-cssreflections .no-cssreflections-warning,
+.no-csstransforms .no-csstransforms-warning, .no-3d .no-3d-warning, .no-fontface .no-fontface-warning,
+.no-generatedcontent .no-generatedcontent-warning, .no-video .no-video-warning, .no-audio .no-audio-warning,
+.no-localstorage .no-localstorage-warning, .no-sessionstorage .no-sessionstorage-warning {
+    display:inline !important;
 }
 
-.no-draganddrop .no-draganddrop-warning {
-    display:block !important;
+
+/* jQuery companion script: $('.close-warning').on('click',function(event){ event.preventDefault(); $(this).parent().hide(); }); */
+.close-warning {
+   position: absolute;
+   font-size:18px;
+   top: 0;
+   right: 0;
+   padding:1px 3px 0 3px;
+   border:1px solid #444;
+   cursor: pointer;
+   background-color: #d33;
 }
 
-.no-rgba .no-rgba-warning {
-    display:block !important;
-}
-
-.no-hsla .no-hsla-warning {
-    display:block !important;
-}
-
-.no-multiplebgs .no-multiplebgs-warning {
-    display:block !important;
-}
-
-.no-backgroundsize .no-backgroundsize-warning {
-    display:block !important;
-}
-
-.no-borderimage .no-borderimage-warning {
-    display:block !important;
-}
-
-.no-borderradius .no-borderradius-warning {
-    display:block !important;
-}
-
-.no-boxshadow .no-boxshadow-warning {
-    display:block !important;
-}
-
-.no-textshadow .no-textshadow-warning {
-    display:block !important;
-}
-
-.no-opacity .no-opacity-warning {
-    display:block !important;
-}
-
-.no-cssanimations .no-cssanimations-warning {
-    display:block !important;
-}
-
-.no-csstransitions .no-csstransitions-warning {
-    display:block !important;
-}
-
-.no-csscolumns .no-csscolumns-warning {
-    display:block !important;
-}
-
-.no-cssgradients .no-cssgradients-warning {
-    display:block !important;
-}
-
-.no-cssreflections .no-cssreflections-warning {
-    display:block !important;
-}
-
-.no-csstransforms .no-csstransforms-warning {
-    display:block !important;
-}
-
-.no-3d .no-3d-warning {
-    display:block !important;
-}
-
-.no-fontface .no-fontface-warning {
-    display:block !important;
-}
-
-.no-generatedcontent .no-generatedcontent-warning {
-    display:block !important;
-}
-
-.no-video .no-video-warning {
-    display:block !important;
-}
-
-.no-audio .no-audio-warning {
-    display:block !important;
-}
-
-.no-localstorage .no-localstorage-warning {
-    display:block !important;
-}
-
-.no-sessionstorage .no-sessionstorage-warning {
-    display:block !important;
-}
 
 
 /*

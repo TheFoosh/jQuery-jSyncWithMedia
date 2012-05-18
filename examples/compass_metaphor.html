@@ -75,8 +75,11 @@
 					history.go(-1);
 				});
 
+/*
+ * Needed to support closing special Modernizr warnings
+ */ 	$('.close-warning').on('click',function(event){ event.preventDefault(); $(this).parent().hide(); });
 
-			
+		
 			$('#syncWithMedia').prepend('<div style=\"top:0;right:0;\" class=\"bg-speechbubble-sw light-shadow zIndex9\" aria-expanded=\"false\")>Audio accesskey=\"A\"<br>Press spacebar to play</div>');
 			setTimeout( "$('.bg-speechbubble-sw').attr('aria-expanded','true')", 4000 );
 			setTimeout( "$('.bg-speechbubble-sw').attr('aria-expanded','false')", 9000 );

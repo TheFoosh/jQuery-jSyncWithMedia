@@ -29,41 +29,24 @@
  * it will change the behaviour at beginning and end of
  * modules.
  */
-.jswm [aria-expanded="true"], .jswm [data-jswm-on="0"] {
-	display: block;
-	opacity: 1;
-	height: auto;
-}
-.no-opacity .jswm [aria-expanded="true"] {
-	display: block;
-	height: auto;
-}
 
 .jswm [aria-expanded="false"], .jswm .jswm-syncItem {
+	-webkit-transition: opacity 0.5s linear;
+	-moz-transition: opacity 0.5s linear;
+	-o-transition: opacity 0.5s linear;
+	-ms-transition: opacity 0.5s linear;
+	transition: opacity 0.5s linear;
 	opacity: 0;
-}
-.jswm.subtitlesmode [aria-expanded="false"], .jswm .subtitlesmode [aria-expanded="false"], 
-.no-opacity .jswm [aria-expanded="false"], 
-.no-opacity .jswm .jswm-syncItem {
-	display: none;
-	height: 0;
-}
-
-.jswm [aria-expanded="true"], .jswm [aria-expanded="false"] {
-	-webkit-transition: opacity 500ms ease-in-out 500ms;
-	-moz-transition: opacity 500ms ease-in-out 500ms;
-	-o-transition: opacity 500ms ease-in-out 500ms;
-	-ms-transition: opacity 500ms ease-in-out 500ms;
-	transition: opacity 500ms ease-in-out 500ms;
 }
 
 .jswm [aria-expanded="true"] {
+	-webkit-transition: opacity 0.5s linear;
+	-moz-transition: opacity 0.5s linear;
+	-o-transition: opacity 0.5s linear;
+	-ms-transition: opacity 0.5s linear;
+	transition: opacity 0.5s linear;
 	opacity: 1;
 }
-.jswm [aria-expanded="false"] {
-	opacity: 0;
-}
-
 
 /*
  * "Default Theme" lol
@@ -178,28 +161,32 @@
 	list-style-type: none;
 }
 
+.jswm.subtitlesmode ol.bulletsmode, .jswm.bulletsmode ul.subtitles {
+	list-style-type: disc;
+}
+
 .jswm.subtitlesmode ol.subtitles li, .jswm.subtitlesmode ul.subtitles li {
 	list-style-type: none;
 }
 
 .jswm.subtitlesmode li {
-	-webkit-transition: height 500ms ease-in-out 500ms;
-	-moz-transition: height 500ms ease-in-out 500ms;
-	-o-transition: height 500ms ease-in-out 500ms;
-	-ms-transition: height 500ms ease-in-out 500ms;
-	transition: height 500ms ease-in-out 500ms;
+	-webkit-transition: height 0.5s linear;
+	-moz-transition: height 0.5s linear;
+	-o-transition: height 0.5s linear;
+	-ms-transition: height 0.5s linear;
+	transition: height 0.5s linear;
+	height: 0;
 }
 
 .jswm.subtitlesmode li[aria-expanded="true"] {
 	height: auto;
 }
 
-.jswm.subtitlesmode li[aria-expanded="false"] {
-	height: 0;
-}
+
 .jswm a img.jswm-syncItem {
 	opacity: 0.7;
 }
+
 .jswm a img.jswm-syncItem:hover {
 	opacity: 1.0;
 }

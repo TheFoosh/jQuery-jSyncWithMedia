@@ -522,35 +522,34 @@ code {
 	z-index: 9;
 }
 
-
 .bg-speechbubble-ne,
 .bg-speechbubble-nw ,
 .bg-speechbubble-se ,
 .bg-speechbubble-sw {
-	font-size: 1.25em;
-    font-weight: bold;
-    padding:  9% 7% 0 5%;
-    text-align: center;
+    padding: 90px 72px 72px 54px;
+    background-repeat: no-repeat;
 } /* 10% 6% 16% 5% */
 
 .bg-speechbubble-ne {
-	background: transparent url('../images/speech_bubble_ne.png') no-repeat top left;
-    padding:  9% 7% 16% 7%;
+	background-image: url('../images/speech_bubble_ne.png');
+    /*padding:  9% 7% 16% 7%;*/
 }
 
 .bg-speechbubble-nw {
-	background: transparent url('../images/speech_bubble_nw.png') no-repeat top left;
-    padding:  9% 7% 16% 5%;
+	background-image:url('../images/speech_bubble_nw.png');
+    /*padding:  9% 7% 16% 5%;*/
 }
 
 .bg-speechbubble-se {
-	background: transparent url('../images/speech_bubble_se.png') no-repeat top left;
-    padding:  11% 8% 17% 8%;
+	background-image: url('../images/speech_bubble_se.png');
+    /*padding:  11% 8% 17% 8%;*/
 }
 
 .bg-speechbubble-sw {
-	background: transparent url('../images/speech_bubble_sw.png') no-repeat top  ;
-    padding: 10% 6% 16% 5%;
+	background-image: url('../images/speech_bubble_sw.png');
+    /*padding: 10% 6% 16% 5%;*/
+}
+
 
 #optionsThisModule {
 	width: 780px;

@@ -130,10 +130,11 @@
 				    
 			});
 			
+			/* Closes modernizr .no-xx warning divs */
 			$('.close-warning').on('click',function(event){ event.preventDefault(); $(this).parent().hide(); });
 
 
-			if(DEBUG) {
+			if(DEBUG===true) {
 			setTimeout(function() {
 			console.log('Sync-ready audio count =', $('.syncwithmedia audio').length);
 			}, 360);
@@ -322,18 +323,18 @@
 					  width="210" alt="icons connected by arrows, clipped from a larger idea map" />
 				</div>
 				<div class="n jswm-syncItem largest dark-shadow" style="padding-left: 90px; width: 360px;"
-				     data-jswm-on="65.5" data-jswm-off="88.8">Documenting the experience of building this tool
+				     data-jswm-on="65.5" data-jswm-off="92.9">Documenting the experience of building this tool
 				     to document the experience of building this tool...</div>
 				<div class="sw jswm-syncItem dark-shadow" style="padding-left:27px;"
-				     data-jswm-on="80" data-jswm-off="88.8">Idea Mapping</div>
+				     data-jswm-on="80" data-jswm-off="92.9">Idea Mapping</div>
 				
 				<div class="s jswm-syncItem dark-shadow" style="padding-left:27px;"
-				     data-jswm-on="82" data-jswm-off="88.8">Communities of Practice</div>
+				     data-jswm-on="82" data-jswm-off="92.9">Communities of Practice</div>
 				<div class="se jswm-syncItem dark-shadow" style="padding-left:27px;"
-				     data-jswm-on="84" data-jswm-off="88.8">Personal Learning Networks</div>
+				     data-jswm-on="84" data-jswm-off="92.9">Personal Learning Networks</div>
 				
 				<div class="w jswm-syncItem"
-				     data-jswm-on="85" data-jswm-off="88.8">
+				     data-jswm-on="85" data-jswm-off="92.9">
 				<img src="images/new_ways.png"
 				     style="width:600px; height:300px; opacity: .25;"
 					  alt="icons connected by arrows, clipped from a larger idea map" /></div>

@@ -49,6 +49,17 @@
 }
 
 /*
+ * Optional, there might be situations, e.g. educational, where you want to see everything. 
+ * Otherwise hide everything in fatal conditions 
+ */
+.no-js .jwsm,
+.no-audio .jwsm,
+.no-video .jwsm,
+.no-opacity .jswm {
+	display:none;
+}
+
+/*
  * "Default Theme" lol
  */
 

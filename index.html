@@ -193,8 +193,9 @@
 					$('#'+iOwn).attr({"aria-expanded":"true"});
 				}
 			});
-			$('#txtAreaLink textarea').on('focus', function(event) {
-				this.select()
+			$('#txtAreaLink textarea').on('mouseup', function(event) {
+				event.preventDefault();
+				if ( this.selectionStart  === this.selectionEnd  ) { this.select(); }
 			});
 
 
@@ -418,7 +419,7 @@
 				<li>Extract the contents to a folder (jSWM) and/or copy the <code>css</code> and <code>js</code> subfolders or their contents to your web site.</li>
 				<li>Place these lines in your document's <code>&lt;head&gt;&lt;/head&gt;</code> (N.B. In Alpha 1, not all classes namespaced .jswm-)</li>
 			</ol>
-				<textarea class="big-dark-boxshadow rad9"><link href="css/jquery.jsyncwithmedia-alpha-1.0.css" />
+				<textarea id="txtAreaLinkTA1"  class="big-dark-boxshadow rad9"><link href="css/jquery.jsyncwithmedia-alpha-1.0.css" />
 <script src="js/modernizr.all-css.audvid.storage.dragdrop.queries.js" type="text/javascript"></script>
 <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="js/jquery.jsyncwithmedia-alpha-1.0.js" type="text/javascript"></script></textarea>
@@ -429,7 +430,7 @@
 					for any other items that should be synced</li>
 				<li>Add <code class="pre">$('#yourId').jSWM();</code></li>
 			</ol>
-				<textarea class="big-dark-boxshadow rad9 taller">$(document).ready(function() {
+				<textarea id="txtAreaLinkTA2" class="big-dark-boxshadow rad9 taller">$(document).ready(function() {
 	var myOptions = { /* see options in examples and templates */ };
 	$('#yourDivsId').jSWM(myOptions);
 });

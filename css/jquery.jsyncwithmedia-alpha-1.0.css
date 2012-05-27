@@ -213,6 +213,7 @@
 	-webkit-border-radius: 3px;
 	-o-border-radius: 3px;
 	-ms-border-radius: 3px;
+	border-radius: 3px;
 }
 
 .rad6 {
@@ -220,6 +221,7 @@
 	-webkit-border-radius: 6px;
 	-o-border-radius: 6px;
 	-ms-border-radius: 6px;
+	border-radius: 6px;
 }
 
 .rad9 {
@@ -227,6 +229,7 @@
 	-webkit-border-radius: 9px;
 	-o-border-radius: 9px;
 	-ms-border-radius: 9px;
+	border-radius: 9px;
 }
 
 .rad18 {
@@ -234,6 +237,7 @@
 	-webkit-border-radius: 18px;
 	-o-border-radius: 18px;
 	-ms-border-radius: 18px;
+	border-radius: 18px;
 }
 
 .rad36 {
@@ -241,6 +245,7 @@
 	-webkit-border-radius: 36px;
 	-o-border-radius: 36px;
 	-ms-border-radius: 36px;
+	border-radius: 36px;
 }
 
 .rad45 {
@@ -248,6 +253,7 @@
 	-webkit-border-radius: 45px;
 	-o-border-radius: 45px;
 	-ms-border-radius: 45px;
+	border-radius: 45px;
 }
 
 .rad90 {
@@ -255,6 +261,7 @@
 	-webkit-border-radius: 90px;
 	-o-border-radius: 90px;
 	-ms-border-radius: 90px;
+	border-radius: 90px;
 }
 .margTop3 {
 	margin-top: 3px;
@@ -484,6 +491,49 @@
  * * * * * * */
 
 /*
+ * Experimental per browser stuff. 
+ * Insert w jQuery
+ * Syntax:
+.jswm-( moz | webkit | ms | o | unknown )-browser .yourClassName {
+	
+}
+.jswm-webkit-browser {
+	
+}
+.jswm-ms-browser {
+	
+}
+.jswm-o-browser {
+	
+}
+ * * * * * * * * * * * * * */
+
+.jswm-moz-browser .bg-speechbubble-ne,
+.jswm-moz-browser .bg-speechbubble-nw ,
+.jswm-moz-browser .bg-speechbubble-se ,
+.jswm-moz-browser .bg-speechbubble-sw {
+    padding: 90px 72px 72px 54px;
+} 
+.jswm-webkit-browser .bg-speechbubble-ne,
+.jswm-webkit-browser .bg-speechbubble-nw ,
+.jswm-webkit-browser .bg-speechbubble-se ,
+.jswm-webkit-browser .bg-speechbubble-sw {
+    padding: 90px 72px 72px 54px;
+} 
+.jswm-ms-browser .bg-speechbubble-ne,
+.jswm-ms-browser .bg-speechbubble-nw ,
+.jswm-ms-browser .bg-speechbubble-se ,
+.jswm-ms-browser .bg-speechbubble-sw {
+    padding: 90px 72px 72px 54px;
+} 
+.jswm-o-browser .bg-speechbubble-ne,
+.jswm-o-browser .bg-speechbubble-nw ,
+.jswm-o-browser .bg-speechbubble-se ,
+.jswm-o-browser .bg-speechbubble-sw {
+    padding: 90px 72px 81px 54px;
+} 
+
+/*
  * Legacy basics from first demo alpha 0.9
  */
 
@@ -533,13 +583,6 @@ code {
 	z-index: 9;
 }
 
-.bg-speechbubble-ne,
-.bg-speechbubble-nw ,
-.bg-speechbubble-se ,
-.bg-speechbubble-sw {
-    padding: 90px 72px 72px 54px;
-    background-repeat: no-repeat;
-} /* 10% 6% 16% 5% */
 
 .bg-speechbubble-ne {
 	background-image: url('../images/speech_bubble_ne.png');
@@ -561,6 +604,13 @@ code {
     /*padding: 10% 6% 16% 5%;*/
 }
 
+.bg-speechbubble-ne,
+.bg-speechbubble-nw ,
+.bg-speechbubble-se ,
+.bg-speechbubble-sw {
+    background-repeat: no-repeat;
+    background-size: contain !important;
+} /* 10% 6% 16% 5% */
 
 #optionsThisModule {
 	width: 780px;

@@ -79,15 +79,15 @@
 		<script type="text/javascript" src="js/jquery.jsyncwithmedia-alpha-1.0.js"></script>
 		<script type="text/javascript">
 			var DEBUG = false,
+			    isWebKit = $.browser.webkit ? true : false,
+				isMoz = $.browser.mozilla ? true : false,
+				isMS = $.browser.msie ? true : false,
+				isO = $.browser.opera ? true : false,
 			    getBubbleTxt = function(){
-				  var isWebKit = $.browser.webkit ? true : false,
-				      isMoz = $.browser.mozilla ? true : false,
-				      isMS = $.browser.msie ? true : false,
-				      isO = $.browser.opera ? true : false,
-				      altKey = $('.jswm audio').attr('accesskey'),
+				  var altKey = $('.jswm audio').attr('accesskey'),
 				      brwsrName = isMoz ? 'Mozilla' : (isMS ? 'MSIE' : isO ? 'Opera' : isWebKit ? 'WebKit' : ' unknown or untested' ),
-				      probableKeys = isMoz ? 'ALT+Shift+'+altKey : (isMS ? 'ALT+'+altKey : ' unknown or untested'),
-				      msg = isWebKit ? brwsrName + ':<span class=\"smaller\">audio accesskey=\"'+altKey+'\"<\/span><span class=\"smallest\"><br>Consult your browser and\/or <br>assistive technology documentation <br>to use accesskey with your browser.<\/span>' : brwsrName + ':<span class=\"bold small\">audio accesskey=\"'+altKey+'\"<\/span><span class=\"smaller\"><br>try '+probableKeys+' to focus media.<br>Press spacebar to play<br>';
+				      probableKeys = isMoz ? 'ALT+Shift+'+altKey : (isMS ? 'ALT+'+altKey :  isO ? 'Shift+Esc' : ' [untested]'),
+				      msg = isWebKit ? brwsrName + ':<span class=\"smaller\">audio accesskey=\"'+altKey+'\"<\/span><span class=\"smallest\"><br>Consult your browser and\/or <br>assistive technology documentation <br>to use accesskey with your browser.<\/span>' :  isO ? brwsrName+': <span class=\"bold small\">Use TAB to focus audio,<br>then spacebar to play.' : brwsrName + ':<span class=\"bold small\">audio accesskey=\"'+altKey+'\"<\/span><span class=\"smaller\"><br>try '+probableKeys+' to focus media.<br>Press spacebar to play<br>';
 				  return msg;
 			};
 			// [true | false]
@@ -211,7 +211,7 @@
 			$('#akBubble').html( getBubbleTxt() ).css({ "top":"54px","left":"300px" }).addClass('bg-speechbubble-se light-shadow bold zIndex9'); // getBubbleTxt() defined above, creates browser-specific messages
 			setTimeout( "$('#akBubble').attr('aria-expanded','true')", 3000 );
 			setTimeout( "$('#akBubble').attr('aria-expanded','false')", 10000 );
-
+			
 			}); /* ^END DOCREADY */
 		</script>
 	</head>

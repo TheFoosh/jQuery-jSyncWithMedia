@@ -136,6 +136,21 @@
                                         "box-shadow" : "1px 1px 3px #223"
 				}
 			},
+			  _addBrowserClass = function(){
+				   var browserClass = '';
+				   if(isWebKit){
+				   	browserClass = 'jswm-webkit-browser';
+				   } else if (isMoz) {
+				   	browserClass = 'jswm-moz-browser';
+				   } else if (isMS) {
+				   	browserClass = 'jswm-ms-browser';
+				   } else if (isO) {
+				   	browserClass = 'jswm-o-browser';
+				   }  else  {
+				   	browserClass = 'jswm-unkown-browser';
+				   } 
+				   $('html').addClass(browserClass);
+			},
 			_showEnding = function(){
 				$('[data-jswm-on="0"]').attr({"aria-expanded":"false"});
 				$('[data-jswm-off="-1"]').attr({"aria-expanded":"true"});
@@ -327,16 +342,17 @@
  * to bind items to timecode
  * and then _showNoHideOnLoad to 
  * display splash screen, titles
- * * * * * * * * * * * * * * * */			
+ * * * * * * * * * * * * * * * */	
 	try
 	{
 		_sync(this);
 		this.show('slow');
 		// if ( DEBUG ) { console.log('_sync OK'); }
 	}
-	 catch(err){ if ( DEBUG ) { console.log('_sync ERROR',err.message); } }
+	catch(err){ if ( DEBUG ) { console.log('_sync ERROR',err.message); } }
 	 _showNoHideOnLoad(); /*  */
-	 _setInitOpacity(this); /* 0s and -1s */
+	 _setInitOpacity(this); /* 0s and -1s */			
+	 _addBrowserClass(); /* this sets up stuff inn jswm.css */
 		}, /* I wonder how to go about the next two... */
 		jswmShow : function(item,animType) {
 			/* TODO: Make configurable. Prefer animation */ 

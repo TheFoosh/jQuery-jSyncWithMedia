@@ -7,7 +7,7 @@
  */
 (function($) {
 
-	var DEBUG = false, /* true | false set true for console feedback */
+	var DEBUG = true, /* true | false set true for console feedback */
 		methods = {
 		init : function(options) {
 			/*
@@ -206,7 +206,10 @@
 				
 				if($media.length === 0){ console.log('Warning... $media.length===0'); }
 				
-			/* Check items' on/off as media plays */
+			/**
+			 * TODO: get/set
+			 */
+				/* Check items' on/off as media plays */
 			$media.on({
 			timeupdate : function(event)
 			{
@@ -229,7 +232,7 @@
 				    * know I have a conflict because I originally wanted -1 to mean 
 				    * one thing then I changed my mind.  
 				    *  
-				    * How would a programmer do this?  */
+				    * How would a programmer do this? [ To see what a programmers would do, see popcorn.js ]  */
 				    neg1 = parseFloat(-1.0); /* just being clear */
 				    on = parseFloat( $(item).attr('data-jswm-on') ) || neg1 ;
 				    off = parseFloat( $(item).attr('data-jswm-off') ) || 0 ; /* Set data-jswm-off="-1" for a "The End" or credits screen */

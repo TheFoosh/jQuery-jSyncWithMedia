@@ -1,6 +1,7 @@
-/* jQuery jSyncWithMedia - Alpha 1.0.1  - 2012/05
+/* jQuery jSyncWithMedia - Beta 1.0.0  - 2014/02
  *
- * Copyright (c) 2012 Richard "Foosh" Fouchaux
+ * @file
+ * Copyright (c) 2012-2014 Richard Fouchaux
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
  * http://rcfouchaux.ca/jquery.syncwithmedia/
  */
@@ -137,19 +138,21 @@
 				}
 			},
 			  _addBrowserClass = function(){
-				   var browserClass = '';
-				   if(isWebKit){
-				   	browserClass = 'jswm-webkit-browser';
-				   } else if (isMoz) {
-				   	browserClass = 'jswm-moz-browser';
-				   } else if (isMS) {
-				   	browserClass = 'jswm-ms-browser';
-				   } else if (isO) {
-				   	browserClass = 'jswm-o-browser';
-				   }  else  {
-				   	browserClass = 'jswm-unkown-browser';
-				   } 
-				   $('html').addClass(browserClass);
+			// Add a className based on user-agent.
+			   var browserClass = '',
+				   ua = navigator.userAgent,
+				   brwsArr = [/Chrome/,/MSIE/,/Firefox/,/Opera/,/browser-not-recognized/],
+				   className = ''
+			   ;
+				   
+				   // loop through array and check for match
+				   for (var i=0; i<brwsArr.length; i++) {
+					   className = brwsArr[i].toString().toLowerCase().replace(/\//g,''); // console.info(i,brwsArr[i].test(ua));
+					   if (brwsArr[i].test(ua)){ break; }
+				   }
+				   
+			//	   console.info('browserClass:',b);
+				   $('html').addClass(className);
 			},
 			_showEnding = function(){
 				$('[data-jswm-on="0"]').attr({"aria-expanded":"false"});

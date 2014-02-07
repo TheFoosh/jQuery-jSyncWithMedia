@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=10" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-		<title>jQuery.jSyncWithMedia - Alpha 1.0</title>
-		<link href="css/jquery.jsyncwithmedia-alpha-1.0.css" rel="stylesheet" type="text/css" />
+		<title>jQuery.jSyncWithMedia - Beta 1.0</title>
+		<link href="css/jquery.jsyncwithmedia-beta-1.0.css" rel="stylesheet" type="text/css" />
 		<link href="css/myModernizr.css" rel="stylesheet" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon.png">
 		<style type="text/css">
@@ -75,21 +75,11 @@
 		
 		<script type="text/javascript" src="js/modernizr.all-css.audvid.storage.dragdrop.queries.js"></script>
 		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
-		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="js/jquery.jsyncwithmedia-alpha-1.0.js"></script>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script><!-- 
+		<script type="text/javascript" src="js/jquery-migrate-1.2.1.js"></script> -->
+		<script type="text/javascript" src="js/jquery.jsyncwithmedia-beta-1.0.js"></script>
 		<script type="text/javascript">
-			var DEBUG = false,
-			    isWebKit = $.browser.webkit ? true : false,
-				isMoz = $.browser.mozilla ? true : false,
-				isMS = $.browser.msie ? true : false,
-				isO = $.browser.opera ? true : false,
-			    getBubbleTxt = function(){
-				  var altKey = $('.jswm audio').attr('accesskey'),
-				      brwsrName = isMoz ? 'Mozilla' : (isMS ? 'MSIE' : isO ? 'Opera' : isWebKit ? 'WebKit' : ' unknown or untested' ),
-				      probableKeys = isMoz ? 'ALT+Shift+'+altKey : (isMS ? 'ALT+'+altKey :  isO ? 'Shift+Esc' : ' [untested]'),
-				      msg = isWebKit ? brwsrName + ':<span class=\"smaller\">audio accesskey=\"'+altKey+'\"<\/span><span class=\"smallest\"><br>Consult your browser and\/or <br>assistive technology documentation <br>to use accesskey with your browser.<\/span>' :  isO ? brwsrName+': <span class=\"bold small\">Use TAB to focus audio,<br>then spacebar to play.' : brwsrName + ':<span class=\"bold small\">audio accesskey=\"'+altKey+'\"<\/span><span class=\"smaller\"><br>try '+probableKeys+' to focus media.<br>Press spacebar to play<br>';
-				  return msg;
-			};
+			var DEBUG = true;
 			// [true | false]
 
 			$(document).ready(function() { 
@@ -207,10 +197,10 @@
 			
 			
 			// TODO: $.jSWM.function() to accomplish what follows:
-			$('#syncWithMedia').prepend('<div id=\"akBubble\" aria-expanded=\"false\"><\/div>');
-			$('#akBubble').html( getBubbleTxt() ).css({ "top":"54px","left":"300px" }).addClass('bg-speechbubble-se light-shadow bold zIndex9'); // getBubbleTxt() defined above, creates browser-specific messages
-			setTimeout( "$('#akBubble').attr('aria-expanded','true')", 3000 );
-			setTimeout( "$('#akBubble').attr('aria-expanded','false')", 10000 );
+	//		$('#syncWithMedia').prepend('<div id=\"akBubble\" aria-expanded=\"false\"><\/div>');
+	//		$('#akBubble').html( getBubbleTxt() ).css({ "top":"54px","left":"300px" }).addClass('bg-speechbubble-se light-shadow bold zIndex9'); // getBubbleTxt() defined above, creates browser-specific messages
+	//		setTimeout( "$('#akBubble').attr('aria-expanded','true')", 3000 );
+	//		setTimeout( "$('#akBubble').attr('aria-expanded','false')", 10000 );
 			
 			}); /* ^END DOCREADY */
 		</script>
@@ -233,8 +223,8 @@
 			<div id="syncWithMedia" class="jswm-bg_gradient_BlueFoil" aria-hidden="true">
 				<h3 class="jswm-bg_gradient_BlueFoil rad45">jQuery.jSyncWithMedia</h3>
 				<audio class="jswm-bg_gradient_BlueFoil rad18">
-					<source src="media/jSyncWithMedia.ogg" type="audio/ogg" ></source>
-					<source src="media/jSyncWithMedia.mp3" type="audio/mp3" ></source>
+					<source src="media/jSyncWithMedia.ogg" type="audio/ogg">&nbsp;</source>
+					<source src="media/jSyncWithMedia.mp3" type="audio/mp3">&nbsp;</source>
 					<!-- 		TODO: automate-fallback		 -->
 				</audio>
 <!--
@@ -261,7 +251,7 @@
 					<span class="code">data-jswm-on="-1" data-jswm-off="-1"</span> shows after everything has played.
 					<br clear="all" />
 				</p>
-				<img src="images/jSWM_alpha.png" alt="jSyncWithMedia Alpha 1"
+				<img src="images/jSWMb1_logo.png" alt="jSyncWithMedia Alpha 1"
 				class="portrait1 jswm-syncItem rad3" data-jswm-on="0.0" data-jswm-off="9.1"  />
 
 				<img src="images/jSWM_img.01.png" alt="jSyncWithMedia Alpha 1"
@@ -455,7 +445,7 @@
 			<br>
 			Permissions beyond the scope of this license may be available at <a href="rcfouchaux.ca/contact/" rel="cc:morePermissions">rcfouchaux.ca/contact/</a>
 			<br>
-			All code Copyright (c) 2012 Richard "Foosh" Fouchaux and dual licensed under the <a href="licenses/mit.lic">MIT</a> and <a href="licenses/gpl.lic">GPL</a> licenses.
+			All code Copyright (c) 2012-2014 Richard Fouchaux and dual licensed under the <a href="licenses/mit.lic">MIT</a> and <a href="licenses/gpl.lic">GPL</a> licenses.
 		</div>
 			<a href="https://github.com/TheFoosh/jQuery-jSyncWithMedia" target="extWin">
 				<img style="position: absolute; top: 0 !important; left: 0 !important; border: 0;"

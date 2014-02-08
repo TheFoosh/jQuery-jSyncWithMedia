@@ -56,25 +56,19 @@
  * This is also for outside .jswm.
  * It's necessary in order not to override .syncItem fade-in/out
  */
-.jswm .ariaNormalize[aria-expanded="true"],
-.ariaNormalize[aria-expanded="true"] {
+.jswm .ariaNormalize[aria-expanded="true"], .ariaNormalize[aria-expanded="true"] {
 	display: block;
 }
-.jswm .ariaNormalize[aria-expanded="false"],
-.ariaNormalize[aria-expanded="false"] {
+.jswm .ariaNormalize[aria-expanded="false"], .ariaNormalize[aria-expanded="false"] {
 	display: none;
 }
 
-
 /*
- * Optional, there might be situations, e.g. educational, where you want to see everything. 
- * Otherwise hide everything in fatal conditions 
+ * Optional, there might be situations, e.g. educational, where you want to see everything.
+ * Otherwise hide everything in fatal conditions
  */
-.no-js .jwsm,
-.no-audio .jwsm,
-.no-video .jwsm,
-.no-opacity .jswm {
-	display:none;
+.no-js .jwsm, .no-audio .jwsm, .no-video .jwsm, .no-opacity .jswm {
+	display: none;
 }
 
 /*
@@ -90,14 +84,13 @@
 .jswm .n, .jswm .ne, .jswm .e, .jswm .se, .jswm .s, .jswm .sw, .jswm .w, .jswm .nw, .jswm .c, .jswm .portrait1 {
 	position: absolute !important;
 }
-.jswm img.n, .jswm img.ne, .jswm img.e, .jswm img.se, .jswm img.s, .jswm img.sw, .jswm img.w, .jswm img.nw, .jswm img.c,
-.jswm div.n, .jswm div.ne, .jswm div.e, .jswm div.se, .jswm div.s, .jswm div.sw, .jswm div.w, .jswm div.nw, 
+.jswm img.n, .jswm img.ne, .jswm img.e, .jswm img.se, .jswm img.s, .jswm img.sw, .jswm img.w, .jswm img.nw, 
+.jswm img.c, .jswm div.n, .jswm div.ne, .jswm div.e, .jswm div.se, .jswm div.s, .jswm div.sw, .jswm div.w, .jswm div.nw, 
 .jswm div.c {
 	width: 27%;
 	height: 27%;
 }
-.jswm div.n, .jswm div.ne, .jswm div.e, .jswm div.se, .jswm div.s, .jswm div.sw, .jswm div.w, .jswm div.nw, 
-.jswm div.c {
+.jswm div.n, .jswm div.ne, .jswm div.e, .jswm div.se, .jswm div.s, .jswm div.sw, .jswm div.w, .jswm div.nw, .jswm div.c {
 }
 .jswm img.portrait1 {
 	width: 48%;
@@ -172,14 +165,14 @@
 }
 
 .jswm .topTitle {
-/*	top: -21px;
-	left: 81px;
-	font-size: 1.67em;
-	font-family: sans-serif;
-	background-color: #dedeef;
-	padding: 6px 12px;
-	border: 1px solid #333;
-	border-radius: 3px;*/
+	/*	top: -21px;
+	 left: 81px;
+	 font-size: 1.67em;
+	 font-family: sans-serif;
+	 background-color: #dedeef;
+	 padding: 6px 12px;
+	 border: 1px solid #333;
+	 border-radius: 3px;*/
 }
 
 .jswm .accessHints {
@@ -210,7 +203,6 @@
 .jswm.subtitlesmode li[aria-expanded="true"] {
 	height: auto;
 }
-
 
 .jswm a img.jswm-syncItem {
 	opacity: 0.7;
@@ -392,9 +384,9 @@
 	box-shadow: 4px 4px 4px rgba(201, 201, 201, 0.67);
 }
 
-/*  
+/*
  * Ultimate CSS Gradient Generator from ColorZilla.
- * http://www.colorzilla.com/gradient-editor/ 
+ * http://www.colorzilla.com/gradient-editor/
  * * * * * * * * * * * * * * * * * * * * **/
 
 .jswm-bg_gradient_green {
@@ -445,7 +437,7 @@
 }
 
 .jswm-bg_gradient_RedGloss, /* preferred */
-.jswm-bg_gradient_red-gloss  /* deprecated, will disappear w/o-n in future commit */ {
+.jswm-bg_gradient_red-gloss/* deprecated, will disappear w/o-n in future commit */ {
 	background: #f3c5bd;
 	background: -moz-linear-gradient(top,  #f3c5bd 0%, #e86c57 10%, #ea2803 20%, #ff6600 60%, #c72200 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3c5bd), color-stop(10%,#e86c57), color-stop(20%,#ea2803), color-stop(60%,#ff6600), color-stop(100%,#c72200));
@@ -509,47 +501,35 @@
  * * * * * * */
 
 /*
- * Experimental per browser stuff. 
+ * Experimental per browser stuff.
  * Insert w jQuery
  * Syntax:
-.jswm-( moz | webkit | ms | o | unknown )-browser .yourClassName {
-	
-}
-.jswm-webkit-browser {
-	
-}
-.jswm-ms-browser {
-	
-}
-.jswm-o-browser {
-	
-}
+ .jswm-( moz | webkit | ms | o | unknown )-browser .yourClassName {
+
+ }
+ .jswm-webkit-browser {
+
+ }
+ .jswm-ms-browser {
+
+ }
+ .jswm-o-browser {
+
+ }
  * * * * * * * * * * * * * */
 
-.jswm-moz-browser .bg-speechbubble-ne,
-.jswm-moz-browser .bg-speechbubble-nw ,
-.jswm-moz-browser .bg-speechbubble-se ,
-.jswm-moz-browser .bg-speechbubble-sw {
-    padding: 90px 72px 72px 54px;
-} 
-.jswm-webkit-browser .bg-speechbubble-ne,
-.jswm-webkit-browser .bg-speechbubble-nw ,
-.jswm-webkit-browser .bg-speechbubble-se ,
-.jswm-webkit-browser .bg-speechbubble-sw {
-    padding: 90px 72px 72px 54px;
-} 
-.jswm-ms-browser .bg-speechbubble-ne,
-.jswm-ms-browser .bg-speechbubble-nw ,
-.jswm-ms-browser .bg-speechbubble-se ,
-.jswm-ms-browser .bg-speechbubble-sw {
-    padding: 90px 72px 72px 54px;
-} 
-.jswm-o-browser .bg-speechbubble-ne,
-.jswm-o-browser .bg-speechbubble-nw ,
-.jswm-o-browser .bg-speechbubble-se ,
-.jswm-o-browser .bg-speechbubble-sw {
-    padding: 90px 72px 81px 54px;
-} 
+.jswm-moz-browser .bg-speechbubble-ne, .jswm-moz-browser .bg-speechbubble-nw, .jswm-moz-browser .bg-speechbubble-se, .jswm-moz-browser .bg-speechbubble-sw {
+	padding: 90px 72px 72px 54px;
+}
+.jswm-webkit-browser .bg-speechbubble-ne, .jswm-webkit-browser .bg-speechbubble-nw, .jswm-webkit-browser .bg-speechbubble-se, .jswm-webkit-browser .bg-speechbubble-sw {
+	padding: 90px 72px 72px 54px;
+}
+.jswm-ms-browser .bg-speechbubble-ne, .jswm-ms-browser .bg-speechbubble-nw, .jswm-ms-browser .bg-speechbubble-se, .jswm-ms-browser .bg-speechbubble-sw {
+	padding: 90px 72px 72px 54px;
+}
+.jswm-o-browser .bg-speechbubble-ne, .jswm-o-browser .bg-speechbubble-nw, .jswm-o-browser .bg-speechbubble-se, .jswm-o-browser .bg-speechbubble-sw {
+	padding: 90px 72px 81px 54px;
+}
 
 /*
  * Legacy basics from first demo alpha 0.9
@@ -577,7 +557,7 @@ body {
 }
 code {
 	font-family: monospace;
-	white-space:pre;
+	white-space: pre;
 }
 .code {
 	font-family: monospace !important;
@@ -591,8 +571,8 @@ code {
 }
 /*
  * Testing area
- * 
- * TODO: There's no need for so many arrow images 
+ *
+ * TODO: There's no need for so many arrow images
  *       if you don't care about < HTML5
  *       Just rotate w css
  */
@@ -601,34 +581,30 @@ code {
 	z-index: 9;
 }
 
-
 .bg-speechbubble-ne {
 	background-image: url('../images/speech_bubble_ne.png');
-    /*padding:  9% 7% 16% 7%;*/
+	/*padding:  9% 7% 16% 7%;*/
 }
 
 .bg-speechbubble-nw {
-	background-image:url('../images/speech_bubble_nw.png');
-    /*padding:  9% 7% 16% 5%;*/
+	background-image: url('../images/speech_bubble_nw.png');
+	/*padding:  9% 7% 16% 5%;*/
 }
 
 .bg-speechbubble-se {
 	background-image: url('../images/speech_bubble_se.png');
-    /*padding:  11% 8% 17% 8%;*/
+	/*padding:  11% 8% 17% 8%;*/
 }
 
 .bg-speechbubble-sw {
 	background-image: url('../images/speech_bubble_sw.png');
-    /*padding: 10% 6% 16% 5%;*/
+	/*padding: 10% 6% 16% 5%;*/
 }
 
-.bg-speechbubble-ne,
-.bg-speechbubble-nw ,
-.bg-speechbubble-se ,
-.bg-speechbubble-sw {
-    background-repeat: no-repeat;
-    background-size: contain !important;
-} /* 10% 6% 16% 5% */
+.bg-speechbubble-ne, .bg-speechbubble-nw, .bg-speechbubble-se, .bg-speechbubble-sw {
+	background-repeat: no-repeat;
+	background-size: contain !important;
+}/* 10% 6% 16% 5% */
 
 #optionsThisModule {
 	width: 780px;

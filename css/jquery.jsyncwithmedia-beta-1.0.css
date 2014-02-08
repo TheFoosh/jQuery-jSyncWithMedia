@@ -14,7 +14,9 @@
  */
 
 /*
- * These maintain the space
+ * These maintain the space.
+ * TODO: This should be opacity imo, and aria-expanded should be width/height,
+ * which is problematic in terms of restoring the correct values. Add/rem Classes?
  */
 .jswm [aria-hidden="true"] {
 	visibility: hidden;
@@ -29,23 +31,25 @@
  * it will change the behaviour at beginning and end of
  * modules.
  */
-
+/**
+ * 	TODO: get/settable default values, other anims
+ */
 .jswm [aria-expanded="false"], .jswm .jswm-syncItem {
+	opacity: 0;
 	-webkit-transition: opacity 0.5s linear;
 	-moz-transition: opacity 0.5s linear;
 	-o-transition: opacity 0.5s linear;
 	-ms-transition: opacity 0.5s linear;
 	transition: opacity 0.5s linear;
-	opacity: 0;
 }
 
 .jswm [aria-expanded="true"] {
+	opacity: 1;
 	-webkit-transition: opacity 0.5s linear;
 	-moz-transition: opacity 0.5s linear;
 	-o-transition: opacity 0.5s linear;
 	-ms-transition: opacity 0.5s linear;
 	transition: opacity 0.5s linear;
-	opacity: 1;
 }
 
 /*

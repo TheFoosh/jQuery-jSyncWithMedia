@@ -25,6 +25,8 @@
 				syncItemClassName = "jswm-syncItem",
 				objDisplayId = "jswmObjDisplay", /* TODO: This becomes a fully stylable display area. */  /*[ true | false ] Displays currentTime */
 				defaults = {
+				setMinHeight : true,
+				setMaxHeight : false, // These two booleans set classes that can be used by $.ready().
 				setupMode : false,
 				mode : 'subtitles', /* [ 'replace' | 'bullets' ] Experimental. "Bullets" meant to be more like PowerPoint */
 				moduleClass : 'jswm  jswm-bg_gradient_pearl', /* Extend styling in .css file */
@@ -138,7 +140,7 @@
 				}
 			},
 			  _addBrowserClass = function(){
-			// Add a className based on user-agent.
+			// Add a className based on user-agent. Yes, user-agent. I might *want* it to be spoofable.
 			   var browserClass = '',
 				   ua = navigator.userAgent,
 				   brwsArr = [/Chrome/,/MSIE/,/Firefox/,/Opera/,/browser-not-recognized/],
@@ -184,15 +186,14 @@
 				if ( DEBUG ) { console.log('Called _showNoHideOnLoad()'); }
 			},
 		    _sync = function(el) {
-			/* This is hardly a robust function. I'm very limited in this regard.
-			 * Suspect it needs something more like Ben Alman's polling plugin:
-			 * http://benalman.com/projects/jquery-dotimeout-plugin/, [ update: specifically
-			 * http://benalman.com/code/projects/jquery-dotimeout/examples/delay-poll/ jQ object example ]
+			/* TODO: check into 
+			 * http://benalman.com/code/projects/jquery-dotimeout/examples/delay-poll/ jQ object example.
 			 * TODO: Currently this will bind to all media elements present, 
-			 * wreaking havoc if played. Must apply unique Ids while STYLING,
-			 *  [should be easy, then .find([id="xyz"])]
+			 * wreaking havoc if played. 
 			 * ... finish jswmObjDisplay. 
-			 * IMPORTANT: Must retain "aria-owns". TODO: Research making fully ARIA compliant, i.e. exemplar. 
+			 * IMPORTANT: Must retain "aria-owns". 
+			 * TODO: Re alpha 1 memo '...making fully ARIA compliant' see my blog post.
+			 *       Add broad semantic structure role=application and ownership/labels.
 			 * Meanwhile probably very sloppy to permit both, but I trust myself 
 			 * not to add extra elements, intend to work on it.
 			 */
@@ -205,7 +206,10 @@
 				if ( hasEnding ) { console.log('Ending contains',$theEnd.length,'item(s).'); }
 				
 				if($media.length === 0){ console.log('Warning... $media.length===0'); }
-				
+				if( DEBUG && settings.setupMode ) {
+						if ( DEBUG ) { console.log('setupMode. Showing Sync Helper'); }
+					 }
+			
 			/**
 			 * TODO: get/set
 			 */
@@ -215,15 +219,16 @@
 			{
 				var
 				 cT = this.currentTime, cTd = cT.toFixed(1) ;
-				if ( DEBUG ) { console.log('Syncing items... '); }
-				 
-				 if( settings.setupMode ) {
-					if ( DEBUG ) { console.log('setupMode. Showing Sync Helper'); }
-				 	$('#showCT').text(cTd);			 	
-				 }
-				if ( DEBUG ) { console.log('timeupdate event'); }
+		//		if ( DEBUG ) { console.log('Syncing items... '); }
 
-				$syncItems.each(function(i,item){
+				// Update the time shown in the 'setup' helper.
+				if( settings.setupMode ) {
+					 	$('#showCT').text(cTd);			 	
+				}
+				 
+		//		if ( DEBUG ) { console.log('timeupdate event'); }
+
+				$syncItems.each(function(i, item) {
 				var neg1, on, off, turnMeOn, turnMeOff, n, msg, theTxt = $(item).text() ; /* ^end declare vars */
 				   
 				   /* I break the logic up so I can visualize and understand it:
@@ -253,11 +258,11 @@
 						
 					}
 					
-					if ( DEBUG ) { console.log(n,msg); }
-					/* cT >= 3.9 && cT <= 4.25 || cT >= 4.9 && cT <= 5.25 ||  */
-		if ( cT == 0 || (cT >= 1.9 && cT <= 2.25) || cT >= 6.9 && cT <= 7.2 || cT == 10 ) {			
-					if ( DEBUG ) { console.log('cT:', cT, '\nItem',n,'On:', on,'  Off:', off, msg, '\n', theTxt); }
-			}
+				// Heavy console output, emergency use only: if ( DEBUG ) { console.log(n,msg); }
+				/* You can also throttle/restrict output somewhat: cT >= 3.9 && cT <= 4.25 || cT >= 4.9 && cT <= 5.25 ||  */
+				if ( cT == 0 || (cT >= 1.9 && cT <= 2.25) || cT >= 6.9 && cT <= 7.2 || cT == 10 ) {			
+						//	if ( DEBUG ) { console.log('cT:', cT, '\nItem',n,'On:', on,'  Off:', off, msg, '\n', theTxt); }
+					}
 				});
 			} /* ^end function */
 			,
@@ -266,7 +271,7 @@
 			_showNoHideOnLoad();		
 			if(hasEnding){ setTimeout(function () {
 			  _showEnding();
-			},200) }
+			}, 200) }
 			
 			} 
 			} /* ^end object */);
@@ -274,17 +279,24 @@
 			 $media.wrap('<span style="position:relative;" class="shadowMedium rad18" />').parent()
 			 .append('<div id="showCT">0.0</div>').find('#showCT').css(settings.showCTCSS);	
 			}
-			/* Aa quarter second is more than enough to make sure it fully inits */
-			setTimeout("$('.jswm audio:first').focus();",250);
+			/* A tenth of a second is now enough to make sure it fully inits. */
+			setTimeout(function(){
+				$('.jswm audio:first').focus();
+			},100);
 			 
 		}, settings = $.extend(true, defaults, options), /* 'true' is required with data map notation to make $extend merge rather than replace. These variable names clarify we're combining defaults + options to get our settings. */
 			mediaType = 'none', /* local variable to store type. 
 			                     * TODO: should support [ 'audio' | 'video' | 'mixed' ] 
 			                     * But until it does stick to one instance of one type of media only!! */
-			modeClassName = {subtitles:"subtitlesmode",bullets:"bulletsmode"};
-			
+			modeClassName = {subtitles:"subtitlesmode",bullets:"bulletsmode"},
+			setMinHeight = settings.setMinHeight,
+			setMaxHeight = settings.setMaxHeight,
+			minmaxH = (setMinHeight ? ' setMinHeight' : '') + (setMaxHeight ? ' setMaxHeight' : '')
+		; // END var dec
+		if ( DEBUG === true ) { console.log('minmaxH:"'+minmaxH+'".'); }
+		// The buck STARTs here.
 			if(this.has('audio,video')) { 
-				if ( DEBUG ) { console.log('Found media... \napplying settings...'); }
+				if ( DEBUG === true ) { console.log('Found media... \napplying settings...'); }
 
 			/* STYLING
 			 * Applying all the styles
@@ -292,7 +304,7 @@
 			 * Later: I've tried many other ways too. aria-hidden="true" applies visibility:none
 			 * but I still see a flash of unformatted objects just as the app initializes. 
 			 */
-			this.hide().addClass('jswm '+modeClassName[settings.mode]).attr(settings.moduleAttr).css(settings.moduleCSS);
+			this.hide().addClass('jswm '+modeClassName[settings.mode] + minmaxH).attr(settings.moduleAttr).css(settings.moduleCSS);
 			this.find(settings.titleElement).attr(settings.titleAttr).css(settings.titleCSS);
 			/* TODO: switch/case to make settings.mode account for other than ul   */
 			this.find(settings.subtitleElement).addClass('jswm-syncItems')
@@ -358,8 +370,10 @@
 	catch(err){ if ( DEBUG ) { console.log('_sync ERROR',err.message); } }
 	 _showNoHideOnLoad(); /*  */
 	 _setInitOpacity(this); /* 0s and -1s */			
-	 _addBrowserClass(); /* this sets up stuff inn jswm.css */
-		}, /* I wonder how to go about the next two... */
+	 _addBrowserClass(); /* this sets up stuff in jswm.css */
+	},
+	
+	/* I [still] wonder how to go about the next two... [but I have a better idea] */
 		jswmShow : function(item,animType) {
 			/* TODO: Make configurable. Prefer animation */ 
 			item.attr('aria-expanded','true');

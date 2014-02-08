@@ -12,7 +12,7 @@
 			body {
 				margin: 0;
 				padding: 0;
-				font-family: sans-serif !important;
+				font-family: sans-serif !important; /* dogmatic, but I really mean it */
 			}
 			.pre {
 				white-space: pre;
@@ -36,12 +36,6 @@
 				font-family: sans-serif;
 				text-align: center;
 				display: block !important;
-			}
-			[aria-expanded="false"] {
-				display:none;
-			}
-			[aria-expanded="true"] {
-				display:block;
 			}
 			#txtAreaLink {
 				background-color: #DFE5D7;
@@ -188,10 +182,25 @@
 				if ( this.selectionStart  === this.selectionEnd  ) { this.select(); }
 			});
 
-
-			if(DEBUG===true) {
+			// Set in settings.setMinHeight : true, setMaxHeight : true;
+			console.log("mediaContainer.is('.setMinHeight')",$('#syncWithMedia').is('.setMinHeight'))
 			setTimeout(function() {
-			console.log( 'DOCREADY audio count is ', $('.jswm audio').size() );
+				var mediaContainer = $('#syncWithMedia'),
+				    mediaH = Math.round(mediaContainer.height())+'px';	
+				    if (DEBUG===true) { console.info('mediaH',mediaH); }	    
+				if(mediaContainer.is('.setMaxHeight')){
+					mediaContainer.css({ maxHeight: mediaH+'px' });
+					if (DEBUG===true) { console.info('Set maxHeight to "' + mediaH + '."');	 }
+				}			    
+				if(mediaContainer.is('.setMinHeight')){
+					mediaContainer.css({ minHeight: mediaH });
+					if (DEBUG===true) { console.info('Set minHeight to "' + mediaH + '."');	 }
+				}
+			}, 450); // This value must be greater than entrance transition.
+
+			if(DEBUG === true) {
+				setTimeout(function() {
+				console.log( 'DOCREADY audio count is ', $('.jswm audio').size() );
 			}, 360);
 			}
 			
@@ -239,7 +248,7 @@
 				</p>
 				<p class="jswm-syncItem" data-jswm-on="-1" data-jswm-off="3">
 					With <strong>jQuery.jSyncWithMedia</strong> you can record a narration and
-					synchronize a slide show to your speech. <br><br>For automated bullets or subtitles,
+					synchronize a slide show to your speech or video. <br><br>For automated bullets or subtitles,
 					create an unordered list and set the attribute
 					<span class="bold code lighterblue dark-shadow">data-jswm-on="StartTime"</span>
 					<span class="bold code lighterblue dark-shadow">data-jswm-off="EndTime"</span> in seconds,

@@ -52,6 +52,20 @@
 	transition: opacity 0.5s linear;
 }
 
+/**
+ * This is also for outside .jswm.
+ * It's necessary in order not to override .syncItem fade-in/out
+ */
+.jswm .ariaNormalize[aria-expanded="true"],
+.ariaNormalize[aria-expanded="true"] {
+	display: block;
+}
+.jswm .ariaNormalize[aria-expanded="false"],
+.ariaNormalize[aria-expanded="false"] {
+	display: none;
+}
+
+
 /*
  * Optional, there might be situations, e.g. educational, where you want to see everything. 
  * Otherwise hide everything in fatal conditions 

@@ -26,15 +26,15 @@
 				objDisplayId = "jswmObjDisplay", /* TODO: This becomes a fully stylable display area. */  /*[ true | false ] Displays currentTime */
 				defaults = {
 				setMinHeight : true,
-				setMaxHeight : false, // These two booleans set classes that can be used by $.ready().
+				setMaxHeight : false, /* These two booleans set classes that can be used by $.ready() to override defaults set elsewhere. */
 				setupMode : false,
 				mode : 'subtitles', /* [ 'replace' | 'bullets' ] Experimental. "Bullets" meant to be more like PowerPoint */
 				moduleClass : 'jswm  jswm-bg_gradient_pearl', /* Extend styling in .css file */
 				titleElement : 'h3:first', /* Defaults to the first <h3 /> enclosure, can be any valid jQuery selector, e.g., 'div' */
 				subtitleElement : 'ul:first', /* valid jQuery selector, e.g., 'div' */
 				moduleAttr : {
-					"title" : "jQuery.jSyncWithMedia",
 					"role" : "application",
+					"title" : "jQuery.jSyncWithMedia - Simple media synchronizing",
 					"aria-labelledby" : jswmTitleId,
 					"aria-hidden" : "false",
 					"aria-describedby" : jswmFirstPId /* This tells assistive technology first p describes the module. Thus, your first p should describe the module. */
@@ -147,10 +147,12 @@
 				   className = ''
 			   ;
 				   
-				   // loop through array and check for match
+				   // loop through array and check for match, massage array element to make className
 				   for (var i=0; i<brwsArr.length; i++) {
 					   className = brwsArr[i].toString().toLowerCase().replace(/\//g,''); // console.info(i,brwsArr[i].test(ua));
-					   if (brwsArr[i].test(ua)){ break; }
+					   if (brwsArr[i].test(ua)) { 
+						   break; 
+					   }
 				   }
 				   
 			//	   console.info('browserClass:',b);

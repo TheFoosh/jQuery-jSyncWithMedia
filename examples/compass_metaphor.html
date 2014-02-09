@@ -5,71 +5,77 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 	<head>
 		<title>jQuery.jSyncWithMedia</title>
-		<link href="../css/jquery.jsyncwithmedia-alpha-1.0.css" rel="stylesheet" type="text/css" />
+		<link href="../css/jquery.jsyncwithmedia-beta-1.0.css" rel="stylesheet" type="text/css" />
 		<link href="../css/myModernizr.css" rel="stylesheet" type="text/css" />
 		<!-- /* See modernizr.com. I've picked a small set.
 		* TODO: read modernizr licensing w view to inserting*
 		* * * * * * * * * * * * * * * * * * * * * * * / -->
 		<script type="text/javascript" src="../js/modernizr.all-css.audvid.storage.dragdrop.queries.js"></script>
 		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
-		<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="../js/jquery.jsyncwithmedia-alpha-1.0.js"></script>
+		<script type="text/javascript" src="../js/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.jsyncwithmedia-beta-1.0.js"></script>
 		<script type="text/javascript">
 			var DEBUG = false;
 			// [true | false]
 
-			$(document).ready(function() {
-				$myOptions = {
-					moduleAttr : {
-						"align" : "center",
-						"class" : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletsmode) REQUIRED */
-					},
-					moduleCSS : {
-						"border" : "3px solid #fcfff4", /* by default this color matches audio gradient's "no gradients" fallback bg-color */
-						"min-width" : "800px",
-						"max-width" : "800px",
-						"min-height" : "600px",
-						"box-shadow" : "#a7aaa1 3px -3px 6px"
-					},
-					titleAttr : {
-						"class" : "jswm-bg_gradient_pearl red-glossFont"
-					},
-					titleCSS : {
-						"color" : "#333",
-						"box-shadow" : "#232334 2px -2px 3px",
-						"z-index":"9"
-					},
-					subtitlesCSS : {
-						"position" : "absolute",
-						"color" : "#123",
-						"top" : "282px",
-						"left" : "282px",
-						"max-width" : "27%",
-						"min-height" : "222px",
-						"max-height" : "522px"
-					},
-					audioAttr : {
-						"autoplay" : false,
-						"controls" : "controls",
-						"class" : "jswm-audio-element jswm-bg_gradient_red-gloss rad9 c" /* jswm-audio-element REQUIRED
-						 * TODO: create settings.xxxClassNames
-						 * so we can add classes w/o wroorying
-						 * * * * * * * * * * * * * * * */
-					},
-					audioCSS : {
-						"width" : "240px",
-						"border" : "2px solid #daddd1"
-					}
-				};
+            $(document).ready(function() {
+                $myOptions = {
+                    moduleAttr : {
+                        align : "center",
+                        class : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletsmode) REQUIRED */
+                    },
+                    moduleCSS : {
+                        border : "3px solid #fcfff4", /* by default this color matches audio gradient's "no gradients" fallback bg-color */
+                        minWidth : "800px",
+                        maxWidth : "800px",
+                        minHeight : "600px",
+                        boxShadow : "#a7aaa1 3px -3px 6px"
+                    },
+                    titleAttr : {
+                        class : "jswm-bg_gradient_pearl red-glossFont"
+                    },
+                    titleCSS : {
+                        color : "#333",
+                        boxShadow : "#232334 2px -2px 3px",
+                        zIndex:"9"
+                    },
+                    subtitlesCSS : {
+                        position : "absolute",
+                        color : "#123",
+                        top : "282px",
+                        left : "282px",
+                        maxWidth : "27%",
+                        minHeight : "222px",
+                        maxHeight : "522px"
+                    },
+                    audioAttr : {
+                        autoplay : false,
+                        controls : "controls",
+                        class : "jswm-audio-element jswm-bg_gradient_red-gloss rad9 c" /* jswm-audio-element REQUIRED
+                         * TODO: create settings.xxxClassNames
+                         * so we can add classes w/o wroorying
+                         * * * * * * * * * * * * * * * */
+                    },
+                    audioCSS : {
+                        width : "240px",
+                        border : "2px solid #daddd1"
+                    }
+                };
 
-				$('#syncWithMedia').jSWM($myOptions);
+                //
+                $('#syncWithMedia').jSWM($myOptions);	
 
 				$('body').prepend('<img id="forkImg" src="../images/forkme_left_lightblue.png" alt="Ribbon labelled Fork Me, link to GitHub" />');
 				$('#forkImg').css({ position : "absolute", top : "0", left : "0", cursor : "pointer" })
 				             .click(function(event) {
 				         	window.open('https://github.com/TheFoosh/jQuery-jSyncWithMedia','gitHubWin');
 				         });
+				// Buttons.
 				
+			
+	  			$('#toggleSetupMode').click(function(){
+  	             	 $('#syncWithMedia').toggleClass('setupMode');
+	            });
 				$('.jswm-backbutton').click(function(event){
 					event.preventDefault;
 					history.go(-1);
@@ -80,7 +86,7 @@
  */ 	$('.close-warning').on('click',function(event){ event.preventDefault(); $(this).parent().hide(); });
 
 		
-			$('#syncWithMedia').prepend('<div style=\"top:0;right:0;\" class=\"bg-speechbubble-sw light-shadow zIndex9\" aria-expanded=\"false\")>Audio accesskey=\"A\"<br>Press spacebar to play</div>');
+			$('#syncWithMedia').prepend('<div style=\"top:3em;right:3em;\" class=\"bg-speechbubble-sw light-shadow zIndex9\" aria-expanded=\"false\")>Audio accesskey=\"A\"<br>Press spacebar to play</div>');
 			setTimeout( "$('.bg-speechbubble-sw').attr('aria-expanded','true')", 4000 );
 			setTimeout( "$('.bg-speechbubble-sw').attr('aria-expanded','false')", 9000 );
 
@@ -167,44 +173,44 @@
 		<div class="syncItem sw"><textarea id="optionsThisModule" class="syncItem code" aria-expanded="false" data-jswm-on="-1" data-jswm-off="-1">
 $myOptions = {
 	moduleAttr : {
-		"align" : "center",
-		"class" : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletsmode) REQUIRED */
+		align : "center",
+		class : "jswm subtitlesmode jswm-bg_gradient_pearl"  /* jswm + (subtitlesmode | bulletsmode) REQUIRED */
 	},
 	moduleCSS : {
-		"border" : "3px solid #fcfff4", /* by default this color matches audio gradient's "no gradients" fallback bg-color */
-		"min-width" : "800px",
-		"max-width" : "800px",
-		"min-height" : "600px",
-		"box-shadow" : "#a7aaa1 3px -3px 6px"
+		border : "3px solid #fcfff4", /* by default this color matches audio gradient's "no gradients" fallback bg-color */
+		minWidth : "800px",
+		maxWidth : "800px",
+		minHeight : "600px",
+		boxShadow : "#a7aaa1 3px -3px 6px"
 	},
 	titleAttr : {
-		"class" : "jswm-bg_gradient_pearl red-glossFont"
+		class : "jswm-bg_gradient_pearl red-glossFont"
 	},
 	titleCSS : {
-		"color" : "#333",
-		"box-shadow" : "#232334 2px -2px 3px",
-		"z-index":"9"
+		color : "#333",
+		boxShadow : "#232334 2px -2px 3px",
+		zIndex:"9"
 	},
 	subtitlesCSS : {
-		"position" : "absolute",
-		"color" : "#123",
-		"top" : "282px",
-		"left" : "282px",
-		"max-width" : "27%",
-		"min-height" : "222px",
-		"max-height" : "522px"
+		position : "absolute",
+		color : "#123",
+		top : "282px",
+		left : "282px",
+		maxWidth : "27%",
+		minHeight : "222px",
+		maxHeight : "522px"
 	},
 	audioAttr : {
-		"autoplay" : false,
-		"controls" : "controls",
-		"class" : "jswm-audio-element jswm-bg_gradient_red-gloss rad9 c" /* jswm-audio-element REQUIRED
+		autoplay : false,
+		controls : "controls",
+		class : "jswm-audio-element jswm-bg_gradient_red-gloss rad9 c" /* jswm-audio-element REQUIRED
 		 * TODO: create settings.xxxClassNames
 		 * so we can add classes w/o wroorying
 		 * * * * * * * * * * * * * * * */
 	},
 	audioCSS : {
-		"width" : "240px",
-		"border" : "2px solid #daddd1"
+		width : "240px",
+		border : "2px solid #daddd1"
 	}
 }	
 
@@ -216,7 +222,8 @@ $('#syncWithMedia').jSWM($myOptions);
 			</div>
 
 		</div>
-		<div class="centered margTop3 margBot3"><button class="jswm-backbutton">Back</button></div>
+		<div class="centered margTop3 margBot3"><button class="jswm-backbutton" accesskey="1">Back</button>
+			<button id="toggleSetupMode" accesskey="2">Toggle Setup Mode</button></div>
 		<div class="myCopyrightNotice sw syncItem" data-jswm-on="0" data-jswm-off="-1">
 			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"> <img alt="Creative Commons Licence" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"> </a>
 			<br>

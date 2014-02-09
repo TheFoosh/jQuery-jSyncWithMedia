@@ -168,6 +168,10 @@
 			normalPCSS : { "max-width" : "40%" }  
 			});
 			
+			$('#toggleSetupMode').click(function(){
+                $('#syncWithMedia').toggleClass('setupMode');
+            });
+            
 			$('#chngThm').on('click', function(event){
 				var theme1 = ["jswm jswm-bg_gradient_BlueFoil subtitlesmode theme1","jswm-bg_gradient_BlueFoil","jswm-bg_gradient_BlueFoil rad18"],
 				    theme2 = ["jswm jswm-bg_gradient_RedGloss subtitlesmode theme2","jswm-bg_gradient_yellow","jswm-bg_gradient_yellow rad18"],
@@ -353,10 +357,10 @@
 				class="portrait1 jswm-syncItem rad3" data-jswm-on="59" data-jswm-off="65"  />
 				
 				
-<!-- the arrow & oval -->
-				<img src="images/arrow_ul.png" alt="jSyncWithMedia Alpha 1"
-				class="arrow jswm-syncItem" data-jswm-on="31.2" data-jswm-off="37"
-				style="position: absolute; top: 81px; left: 333px; width: 72px; height: 72px; z-index: 9"  />
+<!-- the arrow & oval -->				
+				<img style="width: 72px; height: 72px; z-index: 9; right: 21px; position: absolute; top: 18px;" 
+				data-jswm-off="37" data-jswm-on="31.2" class="arrow jswm-syncItem" alt="jSyncWithMedia Beta 1" 
+				src="images/arrow_ne.png">
 				
 				<img src="images/arrow_ne.png" alt="jSyncWithMedia Alpha 1"
 				class="arrow jswm-syncItem" data-jswm-on="39.2" data-jswm-off="42"
@@ -466,7 +470,7 @@
 
 		</div>
 		
-		<div class="centered margBot3"><button id="chngThm" accesskey="1">Change Theme</button></div>
+		<div class="centered margBot3"><button id="chngThm" accesskey="1">Change Theme</button><button id="toggleSetupMode">Toggle currentTime</button> </div>
 		<div class="centered margTop3 margBot3 smaller"><span class="smallest">More examples:</span> | <a href="examples/compass_metaphor.html">compass metaphor</a> |</div>
 		
 		<div class="centered margTop18 margBot18">

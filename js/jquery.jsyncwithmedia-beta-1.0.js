@@ -27,13 +27,14 @@
 				defaults = {
 				setMinHeight : true,
 				setMaxHeight : false, /* These two booleans set classes that can be used by $.ready() to override defaults set elsewhere. */
-				setupMode : false,
+				setupMode : true,
 				mode : 'subtitles', /* [ 'replace' | 'bullets' ] Experimental. "Bullets" meant to be more like PowerPoint */
 				moduleClass : 'jswm  jswm-bg_gradient_pearl', /* Extend styling in .css file */
 				titleElement : 'h3:first', /* Defaults to the first <h3 /> enclosure, can be any valid jQuery selector, e.g., 'div' */
 				subtitleElement : 'ul:first', /* valid jQuery selector, e.g., 'div' */
 				moduleAttr : {
 					"role" : "application",
+					"data-ct" : "0.0",
 					"title" : "jQuery.jSyncWithMedia - Simple media synchronizing",
 					"aria-labelledby" : jswmTitleId,
 					"aria-hidden" : "false",
@@ -215,7 +216,14 @@
 			/**
 			 * TODO: get/set
 			 */
-				/* Check items' on/off as media plays */
+		
+			/* Check items' on/off as media plays */
+			
+			// Is it setup mode?
+				if( settings.setupMode ) {
+				 	$('#syncWithMedia').addClass('setupMode');
+				 	if ( DEBUG ) { console.info('addClass .setupMode to #syncWithMedia ... '); }
+			}
 			$media.on({
 			timeupdate : function(event)
 			{
@@ -225,7 +233,7 @@
 
 				// Update the time shown in the 'setup' helper.
 				if( settings.setupMode ) {
-					 	$('#showCT').text(cTd);			 	
+					 	$('#syncWithMedia').attr({ "data-ct" : cTd });			 	
 				}
 				 
 		//		if ( DEBUG ) { console.log('timeupdate event'); }
@@ -277,10 +285,10 @@
 			
 			} 
 			} /* ^end object */);
-			if(settings.setupMode) {				
-			 $media.wrap('<span style="position:relative;" class="shadowMedium rad18" />').parent()
-			 .append('<div id="showCT">0.0</div>').find('#showCT').css(settings.showCTCSS);	
-			}
+//			if(settings.setupMode) {				
+//			 $media.wrap('<span style="position:relative;" class="shadowMedium rad18" />').parent()
+//			 .append('<div id="showCT">0.0</div>').find('#showCT').css(settings.showCTCSS);	
+//			}
 			/* A tenth of a second is now enough to make sure it fully inits. */
 			setTimeout(function(){
 				$('.jswm audio:first').focus();

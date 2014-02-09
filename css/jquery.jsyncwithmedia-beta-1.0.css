@@ -16,7 +16,7 @@
 /*
  * These maintain the space.
  * TODO: This should be opacity imo, and aria-expanded should be width/height,
- * which is problematic in terms of restoring the correct values. Add/rem Classes?
+ * which is problematic in terms of restoring the correct values. Add/rem Classes? Data?
  */
 .jswm [aria-hidden="true"] {
 	visibility: hidden;
@@ -631,4 +631,24 @@ hr.space {
 }
 .div-centered {
 	margin: auto 0;
+}
+/**
+ * 	Data stuff
+ */
+#syncWithMedia.setupMode:before {
+    background-color: rgba(99, 99, 255, 0.8);
+    border: 2px solid rgba(246, 246, 246, 0.9);
+    border-radius: 6px;
+    color: #FFFFFF;
+    content: attr(data-ct);
+    font-size: 0.75em;
+    font-weight: bold;
+    min-width: 2em;
+    padding: 2px;
+    position: absolute;
+    right: 0.1em;
+    text-align: right;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+    top: 0.1em;
+    z-index: 9999;
 }

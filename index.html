@@ -61,31 +61,30 @@
 			}
 			
 			/* Examples support. */
-			.theme1 #showCT {
-				background-color: #AAD !important;
-				border-color: #113 !important;
-				color: #113 !important;
-			}
-			.theme2 #showCT {
-				background-color: #F8B500 !important;
-				border-color: #000 !important;
-				color: #000 !important;
-			}
-			.theme3 #showCT {
-				background-color: #1D1 !important;
+			.theme1.setupMode:before {
+				background-color: rgba(99, 99, 255, 0.8) !important;
 				border-color: #FFF !important;
 				color: #FFF !important;
-				font-weight: bold;
+			}
+			.theme2.setupMode:before {
+				background-color: #F8B500 !important;
+				border-color: rgba(12, 12, 12, 0.8) !important;
+				color: rgba(12, 12, 12, 0.8) !important;
+			}
+			.theme3.setupMode:before {
+				background-color: #1D1 !important;
+				border-color: #BCBCBC !important;
+				color: #FEFEFE !important;
 			}
 			.theme4 {
 				color: #004400;
 			}
-			.theme4 #showCT {
+			.theme4.setupMode:before {
 				background-color: #191 !important;
 				border-color: #FFF !important;
 				color: #FFF !important;
 			}
-			.theme5 #showCT {
+			.theme5.setupMode:before {
 				background-color: #DFE5E7 !important;
 				border-color: #111 !important;
 				color: #111 !important;
@@ -135,9 +134,9 @@
 			$(document).ready(function() { 
 
 			$('#syncWithMedia').jSWM( { 
-			setupMode: "true", /* displays time to one decimal place to facilitate setting timings */
+			setupMode: true, /* displays time to one decimal place to facilitate setting timings */
 			mode: "subtitles", /* the CSS for "bullets" mode is broken */
-			moduleCSS:{"min-height":"390px","width":"720px","color":"white",border:"4px solid rgba(144,144,207,0.6)"},
+			moduleCSS:{minHeight:"390px",width:"720px",color:"white",border:"4px solid rgba(144,144,207,0.6)"},
 			subtitlesCSS : {
 			    "border" : false,
 				"border-radius" : "15px",
@@ -175,39 +174,42 @@
 				    theme3 = ["jswm jswm-bg_gradient_slate subtitlesmode theme3","jswm-bg_gradient_obsidian","jswm-bg_gradient_obsidian rad18"],
 				    theme4 = ["jswm jswm-bg_gradient_green subtitlesmode theme4","jswm-bg_gradient_green","jswm-bg_gradient_green rad18"],
 				    theme5 = ["jswm jswm-bg_gradient_pearl subtitlesmode theme5","jswm-bg_gradient_pearl","jswm-bg_gradient_pearl rad18"],
-				    m, h, a, $moi = $('#syncWithMedia');
+				    m, h, a, $moi = $('#syncWithMedia'),
+				    isInSetupmode = $moi.is('.setupMode') ? true : false
+				;
+				    
 				    event.preventDefault();
 				    if( $moi.is('.jswm-bg_gradient_BlueFoil') )
 				    {
-				      $moi.attr('class',theme2[0]).css({"color":"#ffd700","text-shadow":"1px 1px 1px #331"});
-				      $moi.find('h3:first').attr('class',theme2[1]).css({"color":"#f9d000","text-shadow":"1px 1px 3px #220"});
+				      $moi.attr('class',theme2[0]);
+				      $moi.find('h3:first').attr('class',theme2[1]);
 				      $moi.find('audio').attr('class',theme2[2]);
 				    } else 
 				    if( $moi.is('.jswm-bg_gradient_RedGloss') )
 				    {
-				      $moi.attr('class',theme3[0]).css({"color":false,"text-shadow":false});
+				      $moi.attr('class',theme3[0]);
 				      $moi.find('h3:first').attr('class',theme3[1]).css({"color":"white","text-shadow":"0 0 0 #331"});
 				      $moi.find('audio').attr('class',theme3[2]);
 				    } else 
 				    if( $moi.is('.jswm-bg_gradient_slate') )
 				    {
-				      $moi.attr('class',theme4[0]).css({"color":"#444","text-shadow":"0 0 0 #aa8"});
+				      $moi.attr('class',theme4[0]);
 				      $moi.find('h3:first').attr('class',theme4[1]).css({"color":"rgba(6,72,6,.8)","text-shadow":"1px -1px 1px #efe"});
 				      $moi.find('audio').attr('class',theme4[2]);
 				    } else 
 				    if( $moi.is('.jswm-bg_gradient_green') )
 				    {
-				      $moi.attr('class',theme5[0]).css({"color":"#111","text-shadow":"0 0 0 #331"});
+				      $moi.attr('class',theme5[0]);
 				      $moi.find('h3:first').attr('class',theme5[1]).css({"color":"#111","text-shadow":"-1 -1 1 #9a9"});
 				      $moi.find('audio').attr('class',theme5[2]);
 				    } else 
 				    if( $moi.is('.jswm-bg_gradient_pearl') )
 				    {
-				      $moi.attr('class',theme1[0]).css({"color":"white","text-shadow":"0 0 0 #331"});
+				      $moi.attr('class',theme1[0]);
 				      $moi.find('h3:first').attr('class',theme1[1]).css({"color":"white","text-shadow":"0 0 0 #331"});
 				      $moi.find('audio').attr('class',theme1[2]);
 				    }
-				    
+				    if (isInSetupmode === true) {$moi.addClass('setupMode');}
 			});
 			
 			/* Closes modernizr .no-xx warning divs */
